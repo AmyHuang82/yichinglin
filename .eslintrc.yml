@@ -5,6 +5,8 @@ env:
 extends:
   - airbnb
   - airbnb/hooks
+  - plugin:prettier/recommended
+  - prettier/react
 
 rules:
   # https://eslint.org/docs/rules/
