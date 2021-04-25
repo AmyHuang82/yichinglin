@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     -webkit-overflow-scrolling: touch;
   }
 
