@@ -71,8 +71,7 @@ rules:
   react-hooks/exhaustive-deps: warn
   # react
   react/react-in-jsx-scope: off
-  react/forbid-foreign-prop-types: error
-  react/forbid-prop-types: [error, { forbid: [any] }]
+  react/prop-types: off
   react/jsx-wrap-multilines:
     [
       error,
