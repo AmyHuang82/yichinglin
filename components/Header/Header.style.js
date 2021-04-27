@@ -3,10 +3,9 @@ import { transparentize } from 'polished'
 import { media } from 'utils/styleUtils'
 import { WHITE, NOBEL_GRAY } from 'constants/colors'
 import { DESKTOP_MAX_WIDTH } from 'constants/media'
-import Logo from './icons/Logo'
-import Instagram from './icons/Instagram'
+import Instagram from '../icons/Instagram'
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   max-width: ${DESKTOP_MAX_WIDTH}px;
   height: 100%;
   padding: 0 20px;
@@ -16,18 +15,18 @@ const Wrapper = styled.div`
   justify-content: center;
 `
 
-const menuBackground = css`
+export const menuBackground = css`
   background-color: ${transparentize(0.5, WHITE)};
 `
 
-const StyledHeader = styled.header`
+export const StyledHeader = styled.header`
   width: 100%;
   height: 80px;
   position: fixed;
   ${menuBackground}
 `
 
-const MenuWrapper = styled.div`
+export const MenuWrapper = styled.div`
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -41,7 +40,7 @@ const MenuWrapper = styled.div`
   }
 `
 
-const Menu = styled.div`
+export const Menu = styled.div`
   max-width: 400px;
   padding: 20px;
   margin: auto;
@@ -60,30 +59,10 @@ const Menu = styled.div`
   }
 `
 
-const IG = styled(Instagram).attrs({ color: NOBEL_GRAY })`
+export const IG = styled(Instagram).attrs({ color: NOBEL_GRAY })`
   width: 20px;
 
   ${media.pad} {
     width: 24px;
   }
 `
-
-function Header() {
-  return (
-    <StyledHeader>
-      <Wrapper>
-        <Logo />
-        <MenuWrapper>
-          <Menu>
-            <div>Illustration</div>
-            <div>Project</div>
-            <div>About</div>
-            <IG />
-          </Menu>
-        </MenuWrapper>
-      </Wrapper>
-    </StyledHeader>
-  )
-}
-
-export default Header
