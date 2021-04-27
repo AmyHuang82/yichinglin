@@ -38,7 +38,7 @@ const Menu = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1rem;
+  font-size: 0.875rem;
   letter-spacing: 0.05rem;
   color: ${NOBEL_GRAY};
 
@@ -46,6 +46,15 @@ const Menu = styled.div`
     max-width: none;
     width: 100%;
     padding: 0;
+    font-size: 1rem;
+  }
+`
+
+const IG = styled(Instagram).attrs({ color: NOBEL_GRAY })`
+  width: 20px;
+
+  ${media.pad} {
+    width: 24px;
   }
 `
 
@@ -59,7 +68,7 @@ function Header() {
             <div>Illustration</div>
             <div>Project</div>
             <div>About</div>
-            <Instagram color={NOBEL_GRAY} />
+            <IG />
           </Menu>
         </MenuWrapper>
       </Layout>
