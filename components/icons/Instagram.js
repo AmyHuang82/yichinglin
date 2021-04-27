@@ -1,10 +1,11 @@
-function Instagram({ color = 'black' }) {
+function Instagram({ color = 'black', ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24px"
       height="24px"
       viewBox="0 0 640 640"
+      {...props}
     >
       <path
         fill={color}
