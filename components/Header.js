@@ -2,9 +2,19 @@ import styled, { css } from 'styled-components'
 import { transparentize } from 'polished'
 import { media } from 'utils/styleUtils'
 import { WHITE, NOBEL_GRAY } from 'constants/colors'
-import Layout from './Layout'
+import { DESKTOP_MAX_WIDTH } from 'constants/media'
 import Logo from './icons/Logo'
 import Instagram from './icons/Instagram'
+
+const Wrapper = styled.div`
+  max-width: ${DESKTOP_MAX_WIDTH}px;
+  height: 100%;
+  padding: 0 20px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 
 const menuBackground = css`
   background-color: ${transparentize(0.5, WHITE)};
@@ -61,7 +71,7 @@ const IG = styled(Instagram).attrs({ color: NOBEL_GRAY })`
 function Header() {
   return (
     <StyledHeader>
-      <Layout>
+      <Wrapper>
         <Logo />
         <MenuWrapper>
           <Menu>
@@ -71,7 +81,7 @@ function Header() {
             <IG />
           </Menu>
         </MenuWrapper>
-      </Layout>
+      </Wrapper>
     </StyledHeader>
   )
 }
