@@ -3,6 +3,7 @@ import { transparentize } from 'polished'
 import { media } from 'utils/styleUtils'
 import { WHITE, NOBEL_GRAY } from 'constants/colors'
 import { DESKTOP_MAX_WIDTH } from 'constants/media'
+import { HEADER_HEIGHT } from 'constants/size'
 import Instagram from '../icons/Instagram'
 
 export const Wrapper = styled.div`
@@ -21,7 +22,7 @@ export const menuBackground = css`
 
 export const StyledHeader = styled.header`
   width: 100%;
-  height: 80px;
+  height: ${HEADER_HEIGHT}px;
   position: fixed;
   ${menuBackground}
 `
