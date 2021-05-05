@@ -3,13 +3,17 @@ import { transparentize } from 'polished'
 import { media } from 'utils/styleUtils'
 import { WHITE, NOBEL_GRAY } from 'constants/colors'
 import { DESKTOP_MAX_WIDTH } from 'constants/media'
-import { HEADER_HEIGHT, MOBILE_MENU_HEIGHT } from 'constants/size'
+import {
+  HEADER_HEIGHT,
+  MOBILE_MENU_HEIGHT,
+  WRAPPER_SIDES_PADDING,
+} from 'constants/size'
 import Instagram from '../icons/Instagram'
 
 export const Wrapper = styled.div`
   max-width: ${DESKTOP_MAX_WIDTH}px;
   height: 100%;
-  padding: 0 20px;
+  padding: 0 ${WRAPPER_SIDES_PADDING}px;
   margin: auto;
   display: flex;
   align-items: center;
@@ -44,8 +48,9 @@ export const MenuWrapper = styled.div`
 `
 
 export const Menu = styled.div`
+  height: 100%;
   max-width: 400px;
-  padding: 20px;
+  padding: 0 ${WRAPPER_SIDES_PADDING}px;
   margin: auto;
   display: flex;
   align-items: center;
