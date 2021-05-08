@@ -13,7 +13,7 @@ function Home({ illustrations }) {
     <>
       <Header />
       <Container>
-        <Illustrations illustrations={illustrations} />
+        <Illustrations list={illustrations} />
       </Container>
     </>
   )
