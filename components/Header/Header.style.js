@@ -1,9 +1,11 @@
+import { forwardRef } from 'react'
 import styled, { css } from 'styled-components'
 import { transparentize } from 'polished'
 import { media } from 'utils/styleUtils'
-import { WHITE, NOBEL_GRAY } from 'constants/colors'
+import { BLACK, WHITE, NOBEL_GRAY } from 'constants/colors'
 import { DESKTOP_MAX_WIDTH } from 'constants/media'
 import {
+  HEADER_PADDING_TOP,
   HEADER_HEIGHT,
   MOBILE_MENU_HEIGHT,
   WRAPPER_SIDES_PADDING,
@@ -28,6 +30,7 @@ export const StyledHeader = styled.header`
   z-index: 1000;
   width: 100%;
   height: ${HEADER_HEIGHT}px;
+  padding-top: ${HEADER_PADDING_TOP}px;
   position: fixed;
   top: 0;
   ${menuBackground}
@@ -65,6 +68,30 @@ export const Menu = styled.div`
     width: 100%;
     padding: 0;
     font-size: 1rem;
+  }
+`
+
+const Link = styled.a`
+  color: ${({ isLogo, isCurrentPage }) =>
+    isLogo || isCurrentPage ? BLACK : NOBEL_GRAY};
+
+  :hover {
+    color: ${BLACK};
+  }
+`
+
+// https://github.com/vercel/next.js/issues/7915#issuecomment-745117649
+export const MenuLink = forwardRef((props, ref) => (
+  <Link ref={ref} {...props}>
+    {props.children}
+  </Link>
+))
+
+export const IconLink = styled.a`
+  :hover {
+    path {
+      fill: ${BLACK};
+    }
   }
 `
 

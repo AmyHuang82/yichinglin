@@ -1,17 +1,47 @@
+import Link from 'next/link'
+import {
+  BASE_URL,
+  PROJECT_URL,
+  ABOUT_URL,
+  INSTAGRAM_LINK,
+} from 'constants/links'
+import { ILLUSTRATION_PAGE, PROJECT_PAGE, ABOUT_PAGE } from 'constants/headInfo'
 import Logo from '../icons/Logo'
-import { StyledHeader, Wrapper, MenuWrapper, Menu, IG } from './Header.style'
+import {
+  StyledHeader,
+  Wrapper,
+  MenuWrapper,
+  Menu,
+  MenuLink,
+  IconLink,
+  IG,
+} from './Header.style'
 
-function Header() {
+function Header({ isIllustration, isProject, isAbout }) {
   return (
     <StyledHeader>
       <Wrapper>
-        <Logo />
+        <Link href={BASE_URL}>
+          <MenuLink isLogo>
+            <Logo />
+          </MenuLink>
+        </Link>
         <MenuWrapper>
           <Menu>
-            <div>Illustration</div>
-            <div>Project</div>
-            <div>About</div>
-            <IG />
+            <Link href={BASE_URL}>
+              <MenuLink isCurrentPage={isIllustration}>
+                {ILLUSTRATION_PAGE}
+              </MenuLink>
+            </Link>
+            <Link href={PROJECT_URL}>
+              <MenuLink isCurrentPage={isProject}>{PROJECT_PAGE}</MenuLink>
+            </Link>
+            <Link href={ABOUT_URL}>
+              <MenuLink isCurrentPage={isAbout}>{ABOUT_PAGE}</MenuLink>
+            </Link>
+            <IconLink target="_blank" rel="noreferrer" href={INSTAGRAM_LINK}>
+              <IG />
+            </IconLink>
           </Menu>
         </MenuWrapper>
       </Wrapper>
