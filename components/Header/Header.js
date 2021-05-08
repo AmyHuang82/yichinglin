@@ -5,6 +5,7 @@ import {
   ABOUT_URL,
   INSTAGRAM_LINK,
 } from 'constants/links'
+import { ILLUSTRATION_PAGE, PROJECT_PAGE, ABOUT_PAGE } from 'constants/headInfo'
 import Logo from '../icons/Logo'
 import {
   StyledHeader,
@@ -28,13 +29,15 @@ function Header({ isIllustration, isProject, isAbout }) {
         <MenuWrapper>
           <Menu>
             <Link href={BASE_URL}>
-              <MenuLink isCurrentPage={isIllustration}>Illustration</MenuLink>
+              <MenuLink isCurrentPage={isIllustration}>
+                {ILLUSTRATION_PAGE}
+              </MenuLink>
             </Link>
             <Link href={PROJECT_URL}>
-              <MenuLink isCurrentPage={isProject}>Project</MenuLink>
+              <MenuLink isCurrentPage={isProject}>{PROJECT_PAGE}</MenuLink>
             </Link>
             <Link href={ABOUT_URL}>
-              <MenuLink isCurrentPage={isAbout}>About</MenuLink>
+              <MenuLink isCurrentPage={isAbout}>{ABOUT_PAGE}</MenuLink>
             </Link>
             <IconLink target="_blank" rel="noreferrer" href={INSTAGRAM_LINK}>
               <IG />
