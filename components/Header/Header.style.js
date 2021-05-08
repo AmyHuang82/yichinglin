@@ -1,3 +1,4 @@
+import { forwardRef } from 'react'
 import styled, { css } from 'styled-components'
 import { transparentize } from 'polished'
 import { media } from 'utils/styleUtils'
@@ -70,7 +71,7 @@ export const Menu = styled.div`
   }
 `
 
-export const MenuLink = styled.a`
+const Link = styled.a`
   color: ${({ isLogo, isCurrentPage }) =>
     isLogo || isCurrentPage ? BLACK : NOBEL_GRAY};
 
@@ -78,6 +79,13 @@ export const MenuLink = styled.a`
     color: ${BLACK};
   }
 `
+
+// https://github.com/vercel/next.js/issues/7915#issuecomment-745117649
+export const MenuLink = forwardRef((props, ref) => (
+  <Link ref={ref} {...props}>
+    {props.children}
+  </Link>
+))
 
 export const IconLink = styled.a`
   :hover {
