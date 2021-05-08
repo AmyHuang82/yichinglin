@@ -10,8 +10,8 @@ export const Wrapper = styled.div`
 
   :hover {
     > div {
-      box-shadow: 0 16px 22px 0 ${transparentize(0.3, NOBEL_GRAY)};
-      top: -5px;
+      box-shadow: 0 10px 10px 0 ${transparentize(0.5, NOBEL_GRAY)};
+      top: -3px;
     }
   }
 `
