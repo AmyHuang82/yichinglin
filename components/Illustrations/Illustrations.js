@@ -1,4 +1,4 @@
-import { Masonry } from 'masonic'
+import { Masonry } from './Illustration.style'
 import Card from './Card/Card'
 
 const MINIMUM_WIDTH = 300
