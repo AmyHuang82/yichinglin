@@ -70,6 +70,15 @@ export const Menu = styled.div`
   }
 `
 
+export const MenuLink = styled.a`
+  color: ${({ isLogo, isCurrentPage }) =>
+    isLogo || isCurrentPage ? BLACK : NOBEL_GRAY};
+
+  :hover {
+    color: ${BLACK};
+  }
+`
+
 export const IconLink = styled.a`
   :hover {
     path {

@@ -1,1 +1,7 @@
+// 內部連結
+export const BASE_URL = '/'
+export const PROJECT_URL = '/project'
+export const ABOUT_URL = '/about'
+
+// 外部連結
 export const INSTAGRAM_LINK = 'https://www.instagram.com/its_yiching'

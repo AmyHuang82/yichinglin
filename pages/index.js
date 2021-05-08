@@ -11,7 +11,7 @@ export function getStaticProps() {
 function Home({ illustrations }) {
   return (
     <>
-      <Header />
+      <Header isIllustration />
       <Container>
         <Illustrations list={illustrations} />
       </Container>
