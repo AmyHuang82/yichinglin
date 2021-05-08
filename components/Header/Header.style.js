@@ -25,6 +25,7 @@ export const menuBackground = css`
 `
 
 export const StyledHeader = styled.header`
+  z-index: 1000;
   width: 100%;
   height: ${HEADER_HEIGHT}px;
   position: fixed;
