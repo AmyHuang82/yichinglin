@@ -1,5 +1,13 @@
+import { INSTAGRAM_LINK } from 'constants/links'
 import Logo from '../icons/Logo'
-import { StyledHeader, Wrapper, MenuWrapper, Menu, IG } from './Header.style'
+import {
+  StyledHeader,
+  Wrapper,
+  MenuWrapper,
+  Menu,
+  IconLink,
+  IG,
+} from './Header.style'
 
 function Header() {
   return (
@@ -11,7 +19,9 @@ function Header() {
             <div>Illustration</div>
             <div>Project</div>
             <div>About</div>
-            <IG />
+            <IconLink target="_blank" rel="noreferrer" href={INSTAGRAM_LINK}>
+              <IG />
+            </IconLink>
           </Menu>
         </MenuWrapper>
       </Wrapper>

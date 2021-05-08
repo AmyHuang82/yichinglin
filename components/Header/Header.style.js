@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { transparentize } from 'polished'
 import { media } from 'utils/styleUtils'
-import { WHITE, NOBEL_GRAY } from 'constants/colors'
+import { BLACK, WHITE, NOBEL_GRAY } from 'constants/colors'
 import { DESKTOP_MAX_WIDTH } from 'constants/media'
 import {
   HEADER_PADDING_TOP,
@@ -67,6 +67,14 @@ export const Menu = styled.div`
     width: 100%;
     padding: 0;
     font-size: 1rem;
+  }
+`
+
+export const IconLink = styled.a`
+  :hover {
+    path {
+      fill: ${BLACK};
+    }
   }
 `
 
