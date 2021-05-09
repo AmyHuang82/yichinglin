@@ -27,7 +27,14 @@ export const Container = styled.div`
   }
 `
 
+const fadeIn = keyframes`
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+`
+
 export const Content = styled.div`
+  opacity: 0;
+  animation: ${fadeIn} 0.5s linear forwards;
   position: relative;
   margin: auto;
   padding: 40px 20px;
@@ -40,14 +47,7 @@ export const Content = styled.div`
   }
 `
 
-const fadeIn = keyframes`
-  0% { opacity: 0.5; }
-  100% { opacity: 1; }
-`
-
 export const Image = styled.img`
-  opacity: 0;
-  animation: ${fadeIn} 1s linear forwards;
   max-width: 100%;
   max-height: 70vh;
 
