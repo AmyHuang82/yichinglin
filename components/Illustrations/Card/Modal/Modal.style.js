@@ -27,11 +27,6 @@ export const Container = styled.div`
   }
 `
 
-const fadeIn = keyframes`
-  0% { opacity: 0.5; }
-  100% { opacity: 1; }
-`
-
 export const Content = styled.div`
   position: relative;
   margin: auto;
@@ -43,12 +38,17 @@ export const Content = styled.div`
   ${media.pad} {
     max-width: 90%;
   }
+`
 
-  img {
-    opacity: 0;
-    animation: ${fadeIn} 1s linear forwards;
-    max-height: 75vh !important;
-  }
+const fadeIn = keyframes`
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+`
+
+export const Image = styled.img`
+  opacity: 0;
+  animation: ${fadeIn} 1s linear forwards;
+  max-height: 75vh !important;
 `
 
 export const CopyRight = styled.div`
