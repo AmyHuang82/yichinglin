@@ -28,26 +28,33 @@ export const Container = styled.div`
 `
 
 const fadeIn = keyframes`
-  0% { opacity: 0.5; }
+  0% { opacity: 0; }
   100% { opacity: 1; }
 `
 
 export const Content = styled.div`
+  opacity: 0;
+  animation: ${fadeIn} 0.5s linear forwards;
   position: relative;
   margin: auto;
   padding: 40px 20px;
   background-color: ${WHITE};
   box-shadow: 0 16px 22px 0 ${transparentize(0.5, NOBEL_GRAY)};
   max-width: 100%;
+  min-width: 200px;
+  min-height: 200px;
 
   ${media.pad} {
     max-width: 90%;
   }
+`
 
-  img {
-    opacity: 0;
-    animation: ${fadeIn} 1s linear forwards;
-    max-height: 75vh !important;
+export const Image = styled.img`
+  max-width: 100%;
+  max-height: 70vh;
+
+  ${media.pad} {
+    max-height: 80vh;
   }
 `
 
