@@ -27,7 +27,7 @@ export const menuBackground = css`
 `
 
 export const StyledHeader = styled.header`
-  z-index: 1000;
+  z-index: 100;
   width: 100%;
   height: ${HEADER_HEIGHT}px;
   padding-top: ${HEADER_PADDING_TOP}px;
