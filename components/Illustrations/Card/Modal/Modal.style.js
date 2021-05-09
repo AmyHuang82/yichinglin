@@ -61,6 +61,7 @@ export const CopyRight = styled.div`
 `
 
 export const Close = styled(Cross).attrs({ color: NOBEL_GRAY })`
+  z-index: 1500;
   position: absolute;
   top: 0;
   right: 0;
