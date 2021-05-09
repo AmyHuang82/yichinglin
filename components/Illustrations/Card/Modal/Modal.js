@@ -1,5 +1,6 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
+import { EventEmitter } from 'fbemitter'
 import { noScroll, GlobalStyle, Container } from './Modal.style'
 
 function Portal({ children }) {
@@ -27,9 +28,28 @@ function Portal({ children }) {
 }
 
 function Modal({ data, toggleOpen }) {
+  const maskRef = useRef()
+
+  useEffect(() => {
+    const emitter = new EventEmitter()
+
+    emitter.addListener('closeModal', e => {
+      if (e.target === maskRef.current) {
+        toggleOpen()
+      }
+    })
+    maskRef.current.addEventListener('click', e => {
+      emitter.emit('closeModal', e)
+    })
+
+    return () => {
+      emitter.removeAllListeners()
+    }
+  }, [])
+
   return (
     <Portal>
-      <Container>
+      <Container ref={maskRef}>
         {data.name}
         <button type="button" onClick={toggleOpen}>
           關掉
