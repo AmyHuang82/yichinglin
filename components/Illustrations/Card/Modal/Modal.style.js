@@ -48,7 +48,12 @@ const fadeIn = keyframes`
 export const Image = styled.img`
   opacity: 0;
   animation: ${fadeIn} 1s linear forwards;
-  max-height: 75vh !important;
+  max-width: 100%;
+  max-height: 70vh;
+
+  ${media.pad} {
+    max-height: 80vh;
+  }
 `
 
 export const CopyRight = styled.div`
