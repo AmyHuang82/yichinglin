@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { useState } from 'react'
 import Image from 'next/image'
 import Modal from './Modal/Modal'
@@ -16,6 +17,9 @@ function Card({ data }) {
 
   return (
     <>
+      <Head>
+        <link rel="prefetch" href={src} />
+      </Head>
       <Wrapper onClick={toggleOpen}>
         <Image
           key={name}
