@@ -7,6 +7,7 @@ import {
   Container,
   Content,
   Image,
+  CopyRight,
   Close,
 } from './Modal.style'
 
@@ -60,6 +61,7 @@ function Modal({ data: { name, src }, closeModal }) {
         <Close onClick={closeModal} />
         <Content>
           <Image src={src} alt={name} />
+          <CopyRight>copyright &copy; Yiching Lin</CopyRight>
         </Content>
       </Container>
     </Portal>

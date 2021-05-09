@@ -28,6 +28,7 @@ export const Container = styled.div`
 `
 
 export const Content = styled.div`
+  position: relative;
   margin: auto;
   padding: 40px 20px;
   background-color: ${WHITE};
@@ -42,6 +43,14 @@ export const Content = styled.div`
 export const Image = styled.img`
   max-height: 80vh;
   max-width: 100%;
+`
+
+export const CopyRight = styled.div`
+  position: absolute;
+  left: 20px;
+  bottom: 15px;
+  color: ${NOBEL_GRAY};
+  font-size: 14px;
 `
 
 export const Close = styled(Cross).attrs({ color: NOBEL_GRAY })`
