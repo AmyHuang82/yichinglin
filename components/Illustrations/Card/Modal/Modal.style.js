@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle, keyframes } from 'styled-components'
 import { transparentize } from 'polished'
 import { media } from 'utils/styleUtils'
 import { WHITE, NOBEL_GRAY } from 'constants/colors'
@@ -40,7 +40,14 @@ export const Content = styled.div`
   }
 `
 
+const fadeIn = keyframes`
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+`
+
 export const Image = styled.img`
+  opacity: 0;
+  animation: ${fadeIn} 1s linear forwards;
   max-height: 80vh;
   max-width: 100%;
 `
