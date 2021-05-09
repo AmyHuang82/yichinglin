@@ -47,7 +47,7 @@ export const Content = styled.div`
   img {
     opacity: 0;
     animation: ${fadeIn} 1s linear forwards;
-    max-height: 80vh !important;
+    max-height: 75vh !important;
   }
 `
 
