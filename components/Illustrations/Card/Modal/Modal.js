@@ -1,7 +1,14 @@
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { EventEmitter } from 'fbemitter'
-import { noScroll, GlobalStyle, Container } from './Modal.style'
+import {
+  noScroll,
+  GlobalStyle,
+  Container,
+  Content,
+  Image,
+  Close,
+} from './Modal.style'
 
 function Portal({ children }) {
   const className = 'root-portal'
@@ -27,7 +34,7 @@ function Portal({ children }) {
   )
 }
 
-function Modal({ data, closeModal }) {
+function Modal({ data: { name, src }, closeModal }) {
   const maskRef = useRef()
 
   useEffect(() => {
@@ -50,10 +57,10 @@ function Modal({ data, closeModal }) {
   return (
     <Portal>
       <Container ref={maskRef}>
-        {data.name}
-        <button type="button" onClick={closeModal}>
-          關掉
-        </button>
+        <Close onClick={closeModal} />
+        <Content>
+          <Image src={src} alt={name} />
+        </Content>
       </Container>
     </Portal>
   )
