@@ -41,6 +41,8 @@ export const Content = styled.div`
   background-color: ${WHITE};
   box-shadow: 0 16px 22px 0 ${transparentize(0.5, NOBEL_GRAY)};
   max-width: 100%;
+  min-width: 200px;
+  min-height: 200px;
 
   ${media.pad} {
     max-width: 90%;
