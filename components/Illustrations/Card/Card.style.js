@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: zoom-in;
 
   :hover {
     > div {

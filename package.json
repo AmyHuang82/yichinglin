@@ -13,6 +13,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "fbemitter": "^3.0.0",
     "image-size": "^1.0.0",
     "masonic": "^3.4.1",
     "next": "10.1.3",
