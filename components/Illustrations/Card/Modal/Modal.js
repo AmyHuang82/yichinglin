@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { EventEmitter } from 'fbemitter'
@@ -6,7 +7,6 @@ import {
   GlobalStyle,
   Container,
   Content,
-  Image,
   CopyRight,
   Close,
 } from './Modal.style'
@@ -35,7 +35,8 @@ function Portal({ children }) {
   )
 }
 
-function Modal({ data: { name, src }, closeModal }) {
+function Modal({ data: { name, src, width, height }, closeModal }) {
+  const resizeRate = 0.65
   const maskRef = useRef()
 
   useEffect(() => {
@@ -60,7 +61,12 @@ function Modal({ data: { name, src }, closeModal }) {
       <Container ref={maskRef}>
         <Close onClick={closeModal} />
         <Content>
-          <Image src={src} alt={name} />
+          <Image
+            src={src}
+            alt={name}
+            width={width * resizeRate}
+            height={height * resizeRate}
+          />
           <CopyRight>copyright &copy; Yiching Lin</CopyRight>
         </Content>
       </Container>
