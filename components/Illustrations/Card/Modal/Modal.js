@@ -27,7 +27,7 @@ function Portal({ children }) {
   )
 }
 
-function Modal({ data, toggleOpen }) {
+function Modal({ data, closeModal }) {
   const maskRef = useRef()
 
   useEffect(() => {
@@ -35,7 +35,7 @@ function Modal({ data, toggleOpen }) {
 
     emitter.addListener('closeModal', e => {
       if (e.target === maskRef.current) {
-        toggleOpen()
+        closeModal()
       }
     })
     maskRef.current.addEventListener('click', e => {
@@ -51,7 +51,7 @@ function Modal({ data, toggleOpen }) {
     <Portal>
       <Container ref={maskRef}>
         {data.name}
-        <button type="button" onClick={toggleOpen}>
+        <button type="button" onClick={closeModal}>
           關掉
         </button>
       </Container>

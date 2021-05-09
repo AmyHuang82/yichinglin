@@ -25,7 +25,7 @@ function Card({ data }) {
           height={calcHeight}
         />
       </Wrapper>
-      {open && <Modal data={data} toggleOpen={toggleOpen} />}
+      {open && <Modal data={data} closeModal={toggleOpen} />}
     </>
   )
 }
