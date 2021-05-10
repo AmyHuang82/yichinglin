@@ -3,6 +3,7 @@ import { media } from 'utils/styleUtils'
 import { NOBEL_GRAY } from 'constants/colors'
 
 export const StyledFooter = styled.div`
+  font-size: 14px;
   text-align: center;
   margin: auto;
   padding-top: 20px;
