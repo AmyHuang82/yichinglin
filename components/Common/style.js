@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { media } from 'utils/styleUtils'
 import { DESKTOP_MAX_WIDTH } from 'constants/media'
 import {
   HEADER_HEIGHT,
@@ -14,4 +15,8 @@ export const Container = styled.div`
   margin-right: auto;
   margin-left: auto;
   padding: 0 ${WRAPPER_SIDES_PADDING}px;
+
+  ${media.pad} {
+    margin-bottom: 20px;
+  }
 `
