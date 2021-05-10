@@ -54,7 +54,7 @@ export const MenuWrapper = styled.div`
 
 export const Menu = styled.div`
   height: 100%;
-  max-width: 400px;
+  max-width: 320px;
   padding: 0 ${WRAPPER_SIDES_PADDING}px;
   margin: auto;
   display: flex;
