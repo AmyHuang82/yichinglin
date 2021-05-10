@@ -11,6 +11,7 @@ import {
   WRAPPER_SIDES_PADDING,
 } from 'constants/size'
 import Instagram from '../icons/Instagram'
+import OrigPinkoi from '../icons/Pinkoi'
 
 export const Wrapper = styled.div`
   max-width: ${DESKTOP_MAX_WIDTH}px;
@@ -95,10 +96,18 @@ export const IconLink = styled.a`
   }
 `
 
-export const IG = styled(Instagram).attrs({ color: NOBEL_GRAY })`
+const iconStyle = css`
   width: 20px;
 
   ${media.pad} {
     width: 24px;
   }
+`
+
+export const IG = styled(Instagram).attrs({ color: NOBEL_GRAY })`
+  ${iconStyle}
+`
+
+export const Pinkoi = styled(OrigPinkoi).attrs({ color: NOBEL_GRAY })`
+  ${iconStyle}
 `
