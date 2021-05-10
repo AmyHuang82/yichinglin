@@ -89,12 +89,6 @@ export const MenuLink = forwardRef((props, ref) => (
 ))
 
 export const IconLink = styled.a`
-  display: none;
-
-  ${media.pad} {
-    display: block;
-  }
-
   :hover {
     path {
       fill: ${BLACK};
@@ -116,4 +110,16 @@ export const IG = styled(Instagram).attrs({ color: NOBEL_GRAY })`
 
 export const Pinkoi = styled(OrigPinkoi).attrs({ color: NOBEL_GRAY })`
   ${iconStyle}
+`
+
+export const Icons = styled.div`
+  display: none;
+
+  ${media.pad} {
+    display: flex;
+  }
+
+  ${IconLink} + ${IconLink} {
+    margin-left: 1.5rem;
+  }
 `

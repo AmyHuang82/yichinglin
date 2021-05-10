@@ -14,6 +14,7 @@ import {
   MenuWrapper,
   Menu,
   MenuLink,
+  Icons,
   IconLink,
   IG,
   Pinkoi,
@@ -41,12 +42,14 @@ function Header({ isIllustration, isProject, isAbout }) {
             <Link href={ABOUT_URL}>
               <MenuLink isCurrentPage={isAbout}>{ABOUT_PAGE}</MenuLink>
             </Link>
-            <IconLink target="_blank" rel="noreferrer" href={INSTAGRAM_LINK}>
-              <IG />
-            </IconLink>
-            <IconLink target="_blank" rel="noreferrer" href={PINKOI_LINK}>
-              <Pinkoi />
-            </IconLink>
+            <Icons>
+              <IconLink target="_blank" rel="noreferrer" href={INSTAGRAM_LINK}>
+                <IG />
+              </IconLink>
+              <IconLink target="_blank" rel="noreferrer" href={PINKOI_LINK}>
+                <Pinkoi />
+              </IconLink>
+            </Icons>
           </Menu>
         </MenuWrapper>
       </Wrapper>
