@@ -89,6 +89,12 @@ export const MenuLink = forwardRef((props, ref) => (
 ))
 
 export const IconLink = styled.a`
+  display: none;
+
+  ${media.pad} {
+    display: block;
+  }
+
   :hover {
     path {
       fill: ${BLACK};
