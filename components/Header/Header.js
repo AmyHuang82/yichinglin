@@ -4,6 +4,7 @@ import {
   PROJECT_URL,
   ABOUT_URL,
   INSTAGRAM_LINK,
+  PINKOI_LINK,
 } from 'constants/links'
 import { ILLUSTRATION_PAGE, PROJECT_PAGE, ABOUT_PAGE } from 'constants/headInfo'
 import Logo from '../icons/Logo'
@@ -13,8 +14,10 @@ import {
   MenuWrapper,
   Menu,
   MenuLink,
+  Icons,
   IconLink,
   IG,
+  Pinkoi,
 } from './Header.style'
 
 function Header({ isIllustration, isProject, isAbout }) {
@@ -39,9 +42,14 @@ function Header({ isIllustration, isProject, isAbout }) {
             <Link href={ABOUT_URL}>
               <MenuLink isCurrentPage={isAbout}>{ABOUT_PAGE}</MenuLink>
             </Link>
-            <IconLink target="_blank" rel="noreferrer" href={INSTAGRAM_LINK}>
-              <IG />
-            </IconLink>
+            <Icons>
+              <IconLink target="_blank" rel="noreferrer" href={INSTAGRAM_LINK}>
+                <IG />
+              </IconLink>
+              <IconLink target="_blank" rel="noreferrer" href={PINKOI_LINK}>
+                <Pinkoi />
+              </IconLink>
+            </Icons>
           </Menu>
         </MenuWrapper>
       </Wrapper>
