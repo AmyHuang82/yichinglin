@@ -9,14 +9,19 @@ import {
 
 export const Container = styled.div`
   width: 100%;
+  min-height: calc(100vh - ${HEADER_HEIGHT}px - ${MOBILE_MENU_HEIGHT}px);
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
   max-width: ${DESKTOP_MAX_WIDTH}px;
-  margin-top: ${HEADER_HEIGHT + 20}px;
-  margin-bottom: ${MOBILE_MENU_HEIGHT + 20}px;
+  margin-top: ${HEADER_HEIGHT}px;
+  margin-bottom: ${MOBILE_MENU_HEIGHT}px;
   margin-right: auto;
   margin-left: auto;
-  padding: 0 ${WRAPPER_SIDES_PADDING}px;
+  padding: 20px ${WRAPPER_SIDES_PADDING}px 30px;
 
   ${media.pad} {
-    margin-bottom: 20px;
+    min-height: calc(100vh - ${HEADER_HEIGHT}px);
+    margin-bottom: 0;
   }
 `

@@ -5,7 +5,7 @@ import { NOBEL_GRAY } from 'constants/colors'
 export const StyledFooter = styled.div`
   font-size: 14px;
   text-align: center;
-  margin: auto;
+  margin: auto auto 0;
   padding-top: 20px;
 
   ${media.pad} {
