@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Header from 'components/Header/Header'
+import Footer from 'components/Footer/Footer'
 import Illustrations from 'components/Illustrations/Illustrations'
 import getIllustrationsInfo from 'lib/getIllustrationsInfo'
 import { Container } from 'components/Common/style'
@@ -19,6 +20,7 @@ function Home({ illustrations }) {
       <Header isIllustration />
       <Container>
         <Illustrations list={illustrations} />
+        <Footer />
       </Container>
     </>
   )
