@@ -1,12 +1,16 @@
+import useIllustration from 'components/api/useIllustration'
 import { Masonry } from './Illustration.style'
 import Card from './Card/Card'
 
 const MINIMUM_WIDTH = 300
 
-function Illustrations({ list }) {
+function Illustrations() {
+  const { data, isSuccess } = useIllustration()
+
+  if (!isSuccess) return null
   return (
     <Masonry
-      items={list}
+      items={data}
       columnGutter={15}
       columnWidth={MINIMUM_WIDTH}
       render={Card}
