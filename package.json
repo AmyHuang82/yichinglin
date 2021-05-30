@@ -13,6 +13,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "fbemitter": "^3.0.0",
     "firebase-admin": "^9.9.0",
     "image-size": "^1.0.0",
