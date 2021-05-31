@@ -1,5 +1,5 @@
 import useIllustration from 'components/api/useIllustration'
-import { Masonry } from './Illustration.style'
+import { Masonry, Loading } from './Illustration.style'
 import Card from './Card/Card'
 
 const MINIMUM_WIDTH = 300
@@ -7,7 +7,7 @@ const MINIMUM_WIDTH = 300
 function Illustrations() {
   const { data, isSuccess } = useIllustration()
 
-  if (!isSuccess) return null
+  if (!isSuccess) return <Loading />
   return (
     <Masonry
       items={data}
