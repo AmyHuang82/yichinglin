@@ -7,7 +7,10 @@ async function handler(req, res) {
       if (snapshot.empty) {
         res.status(404).end()
       } else {
-        const data = snapshot.docs.map(doc => doc.data())
+        const data = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
         res.status(200).json(data)
       }
     }
