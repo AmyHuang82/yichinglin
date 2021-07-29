@@ -60,6 +60,7 @@ Contact.IconLink = styled.a`
   display: flex;
   align-items: center;
   width: fit-content;
+  color: ${BLACK};
 
   :visited {
     color: ${BLACK};
