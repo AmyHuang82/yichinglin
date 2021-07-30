@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 import { media } from 'utils/styleUtils'
-import { BLACK, NOBEL_GRAY, CAMOUFLAGE_GREEN } from 'constants/colors'
+import { WHITE, BLACK, NOBEL_GRAY, CAMOUFLAGE_GREEN } from 'constants/colors'
 
 const AVATAR_MARGIN_RIGHT = 50
-const AVATAR_DESKTOP_WIDTH = 45
+const AVATAR_DESKTOP_WIDTH = 40
 
 export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   padding-bottom: 100px;
 `
 
@@ -15,7 +16,11 @@ export const Avatar = styled.div`
   flex-grow: 0;
   width: 100%;
   padding-bottom: 100%;
-  background-color: ${NOBEL_GRAY};
+  background-color: ${WHITE};
+  background-image: url('/avatar.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   ${media.pad} {
     width: ${AVATAR_DESKTOP_WIDTH}%;
