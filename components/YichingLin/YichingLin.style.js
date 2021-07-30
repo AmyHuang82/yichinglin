@@ -57,6 +57,12 @@ export const Intro = styled.div`
   color: ${CAMOUFLAGE_GREEN};
 `
 
+export const Description = styled.div`
+  div + div {
+    margin-top: 10px;
+  }
+`
+
 export const Contact = styled.div`
   padding-top: 35px;
 `

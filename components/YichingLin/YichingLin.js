@@ -6,6 +6,7 @@ import {
   Wrapper,
   InfoWrapper,
   Intro,
+  Description,
   Contact,
 } from './YichingLin.style'
 
@@ -24,12 +25,15 @@ function YichingLin() {
           透過一支畫筆分享給大家。
         </Intro>
 
-        <div>
-          大學念傳播行銷，畢業後做了幾年行銷工作，卻從來沒有忘記對畫畫的熱情，28
-          歲正式開始以創作為生。
-          <br />
-          喜歡畫各種溫暖美好的人事物，尤其享受描繪野鳥、野生動物、生態相關的題材。希望世界上每個生命都有屬於自己的一方天地，和諧存續。
-        </div>
+        <Description>
+          <div>
+            大學念傳播行銷，畢業後做了幾年行銷工作，卻從來沒有忘記對畫畫的熱情，28
+            歲正式開始以創作為生。
+          </div>
+          <div>
+            喜歡畫各種溫暖美好的人事物，尤其享受描繪野鳥、野生動物、生態相關的題材。希望世界上每個生命都有屬於自己的一方天地，和諧存續。
+          </div>
+        </Description>
 
         <Contact>
           <Contact.Title>Contact</Contact.Title>
