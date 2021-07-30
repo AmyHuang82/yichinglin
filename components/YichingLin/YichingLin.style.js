@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import { media } from 'utils/styleUtils'
 import { WHITE, BLACK, NOBEL_GRAY, CAMOUFLAGE_GREEN } from 'constants/colors'
 
-const AVATAR_MARGIN_RIGHT = 50
+const MOBILE_SIDE_SPACE = 15
+const DESKTOP_SIDE_SPACE = 38
 const AVATAR_DESKTOP_WIDTH = 40
 
 export const Wrapper = styled.div`
@@ -10,12 +11,17 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
   align-items: center;
   padding-bottom: 100px;
+  margin-top: -${MOBILE_SIDE_SPACE}px;
+
+  ${media.pad} {
+    margin-top: 0;
+  }
 `
 
 export const Avatar = styled.div`
-  flex-grow: 0;
   width: 100%;
   padding-bottom: 100%;
+  margin: ${MOBILE_SIDE_SPACE}px;
   background-color: ${WHITE};
   background-image: url('/avatar.jpg');
   background-position: center;
@@ -25,28 +31,34 @@ export const Avatar = styled.div`
   ${media.pad} {
     width: ${AVATAR_DESKTOP_WIDTH}%;
     padding-bottom: ${AVATAR_DESKTOP_WIDTH}%;
-    margin-right: ${AVATAR_MARGIN_RIGHT}px;
+    margin: ${DESKTOP_SIDE_SPACE}px;
   }
 `
 
 export const InfoWrapper = styled.div`
   width: 100%;
-  line-height: 1.75rem;
-  font-size: 0.875rem;
+  padding: 0 ${MOBILE_SIDE_SPACE}px;
+  font-size: 1rem;
+  line-height: 2rem;
+  letter-spacing: 0.1rem;
 
   ${media.pad} {
-    width: calc(${100 - AVATAR_DESKTOP_WIDTH}% - ${AVATAR_MARGIN_RIGHT}px);
+    width: calc(${100 - AVATAR_DESKTOP_WIDTH}% - ${2 * DESKTOP_SIDE_SPACE}px);
+    padding: ${DESKTOP_SIDE_SPACE}px;
+    font-size: 0.875rem;
+    line-height: 1.75rem;
+    letter-spacing: 0.0875rem;
   }
 `
 
 export const Intro = styled.div`
-  padding: 35px 0;
+  padding-bottom: 35px;
   text-align: center;
   color: ${CAMOUFLAGE_GREEN};
 `
 
 export const Contact = styled.div`
-  padding: 35px 0;
+  padding-top: 35px;
 `
 
 Contact.Title = styled.div`
@@ -65,6 +77,11 @@ Contact.IconLink = styled.a`
   align-items: center;
   width: fit-content;
   color: ${BLACK};
+  letter-spacing: 0;
+
+  ${media.pad} {
+    letter-spacing: 0.05rem;
+  }
 
   :visited {
     color: ${BLACK};
