@@ -7,4 +7,5 @@ export const ABOUT_URL = '/about'
 export const INSTAGRAM_LINK = 'https://www.instagram.com/its_yiching'
 export const PINKOI_LINK = 'https://www.pinkoi.com/store/chingillustration'
 
-export const MAIL_LINK = 'mailto:yiching.lin0215@gmail.com'
+export const MAIL = 'yiching.lin0215@gmail.com'
+export const MAIL_LINK = `mailto:${MAIL}`
