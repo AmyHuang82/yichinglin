@@ -31,7 +31,6 @@ export const InfoWrapper = styled.div`
 
   ${media.pad} {
     width: calc(${100 - AVATAR_DESKTOP_WIDTH}% - ${AVATAR_MARGIN_RIGHT}px);
-    font-size: 1rem;
   }
 `
 
