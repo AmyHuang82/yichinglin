@@ -34,7 +34,7 @@ function YichingLin() {
         <Contact>
           <Contact.Title>Contact</Contact.Title>
           <div>
-            合作邀約歡迎email聯繫。
+            合作邀約歡迎 email 聯繫。
             <br />
             Please email me at &nbsp;
             <Contact.Email href={MAIL_LINK}>{MAIL}</Contact.Email>
