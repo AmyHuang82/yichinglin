@@ -16,6 +16,7 @@
     "antd": "^4.16.9",
     "axios": "^0.21.1",
     "fbemitter": "^3.0.0",
+    "firebase": "^8.8.1",
     "firebase-admin": "^9.9.0",
     "image-size": "^1.0.0",
     "masonic": "^3.4.1",
