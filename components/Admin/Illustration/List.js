@@ -19,7 +19,7 @@ function List() {
         columns={[
           {
             title: '排序',
-            key: 'order',
+            key: 'index',
             render: (_, __, index) => index + 1,
           },
           { title: '名稱', dataIndex: 'name' },
