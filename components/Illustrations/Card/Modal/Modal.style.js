@@ -63,7 +63,7 @@ export const CopyRight = styled.div`
   left: 20px;
   bottom: 15px;
   color: ${NOBEL_GRAY};
-  font-size: 14px;
+  font-size: 0.875rem;
 `
 
 export const Close = styled(Cross).attrs({ color: NOBEL_GRAY })`
