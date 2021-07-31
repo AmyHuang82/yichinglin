@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Menu } from 'antd'
 import LoginModal from './LoginModal'
+import Illustration from './Illustration/Illustration'
 
 const ILLUSTRATION_KEY = 'illustration'
 const PROJECT_KEY = 'project'
@@ -26,7 +27,7 @@ function Admin() {
         <Menu.Item key={ILLUSTRATION_KEY}>Illustration 管理</Menu.Item>
         <Menu.Item key={PROJECT_KEY}>Project 管理</Menu.Item>
       </Menu>
-      {currentKey === ILLUSTRATION_KEY && <div>Illustration 管理</div>}
+      {currentKey === ILLUSTRATION_KEY && <Illustration />}
       {currentKey === PROJECT_KEY && <div>Project 管理</div>}
     </>
   )
