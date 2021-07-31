@@ -1,4 +1,4 @@
-import db from 'firebase'
+import db from 'firebase/backend'
 
 async function handler(req, res) {
   try {
