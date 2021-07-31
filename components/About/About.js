@@ -8,9 +8,9 @@ import {
   Intro,
   Description,
   Contact,
-} from './YichingLin.style'
+} from './About.style'
 
-function YichingLin() {
+function About() {
   return (
     <Wrapper>
       <Avatar />
@@ -67,4 +67,4 @@ function YichingLin() {
   )
 }
 
-export default YichingLin
+export default About
