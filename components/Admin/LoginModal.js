@@ -1,10 +1,7 @@
-import { useEffect, useState } from 'react'
 import { Modal, Button } from 'antd'
 import firebase from 'firebase/frontend'
 
 function LoginModal({ setLoginUid }) {
-  const [isAuthReady, setIsAuthReady] = useState(false)
-
   function login() {
     const provider = new firebase.auth.GoogleAuthProvider()
     firebase
@@ -14,16 +11,9 @@ function LoginModal({ setLoginUid }) {
       .catch(error => console.login(error))
   }
 
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) setLoginUid(user.uid)
-      setIsAuthReady(true)
-    })
-  }, [])
-
   return (
     <Modal
-      visible={isAuthReady}
+      visible
       centered
       closable={false}
       footer={null}

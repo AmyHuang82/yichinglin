@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu } from 'antd'
+import firebase from 'firebase/frontend'
 import LoginModal from './LoginModal'
 import Illustration from './Illustration/Illustration'
 
@@ -7,6 +8,7 @@ const ILLUSTRATION_KEY = 'illustration'
 const PROJECT_KEY = 'project'
 
 function Admin() {
+  const [isAuthReady, setIsAuthReady] = useState(false)
   const [loginUid, setLoginUid] = useState(null)
   const isLogin = loginUid === process.env.NEXT_PUBLIC_VALID_UID
 
@@ -16,7 +18,14 @@ function Admin() {
     setCurrentKey(e.key)
   }
 
-  if (!isLogin) return <LoginModal setLoginUid={setLoginUid} />
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) setLoginUid(user.uid)
+      setIsAuthReady(true)
+    })
+  }, [])
+
+  if (isAuthReady && !isLogin) return <LoginModal setLoginUid={setLoginUid} />
   return (
     <>
       <Menu
