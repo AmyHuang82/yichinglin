@@ -17,10 +17,11 @@ if (!admin.apps.length) {
         client_x509_cert_url: process.env.FIREBASE_CLIENT_X509_CERT_URL,
       }),
       databaseURL: process.env.FIREBASE_DATABASE_URL,
+      storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
     })
   } catch (error) {
     throw new Error(error)
   }
 }
 
-export default admin.firestore()
+export default admin
