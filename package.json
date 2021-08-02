@@ -19,6 +19,7 @@
     "fbemitter": "^3.0.0",
     "firebase": "^8.8.1",
     "firebase-admin": "^9.9.0",
+    "formidable": "^1.2.2",
     "image-size": "^1.0.0",
     "masonic": "^3.4.1",
     "next": "10.1.3",
