@@ -12,7 +12,7 @@ function fetchIllustrationAPI() {
 }
 
 function useIllustration() {
-  const { isSuccess, data } = useQuery({
+  const { isSuccess, data, refetch } = useQuery({
     queryKey: 'fetchIllustrationAPI',
     queryFn: fetchIllustrationAPI,
     staleTime: Infinity,
@@ -21,6 +21,7 @@ function useIllustration() {
   return {
     data: data || [],
     isSuccess,
+    refetch,
   }
 }
 

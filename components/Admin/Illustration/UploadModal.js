@@ -1,6 +1,8 @@
 import { useState } from 'react'
-import { Modal, Upload } from 'antd'
+import { Modal, Upload, Button } from 'antd'
 import { InboxOutlined } from '@ant-design/icons'
+import useIllustration from 'components/api/useIllustration'
+import useCreateIllustration from 'components/api/useCreateIllustration'
 
 const { Dragger } = Upload
 
@@ -49,14 +51,42 @@ function UploadModal({ closeModal }) {
     setImages(newImages)
   }
 
+  const { data, refetch } = useIllustration()
+  const { submit, isLoading } = useCreateIllustration()
+
+  function onSubmit() {
+    const submitData = images.map((image, index) => ({
+      ...image,
+      order: data[0].order + 1 + index,
+    }))
+    submit(submitData, {
+      onSuccess: () => {
+        closeModal()
+        refetch()
+      },
+    })
+  }
+
   return (
     <Modal
       visible
       centered
-      cancelText="取消"
-      okText="新增"
       closable={false}
+      maskClosable={!isLoading}
       onCancel={closeModal}
+      footer={
+        <>
+          {!isLoading && <Button onClick={closeModal}>取消</Button>}
+          <Button
+            type="primary"
+            disabled={images.length === 0}
+            loading={isLoading}
+            onClick={onSubmit}
+          >
+            新增
+          </Button>
+        </>
+      }
     >
       <Dragger
         multiple
