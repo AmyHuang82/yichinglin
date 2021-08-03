@@ -41,19 +41,28 @@ async function handler(req, res) {
           const token = uuid()
           const remotePath = `illustration/${file.name}`
 
-          await bucket.upload(file.path, {
-            destination: remotePath,
-            metadata: {
-              cacheControl: 'public, max-age=604800',
+          await bucket
+            .upload(file.path, {
+              destination: remotePath,
               metadata: {
-                firebaseStorageDownloadTokens: token,
+                cacheControl: 'public, max-age=604800',
+                metadata: {
+                  firebaseStorageDownloadTokens: token,
+                },
               },
-            },
-          })
+            })
+            .catch(error => {
+              res.status(400).json(error)
+            })
 
           parsedFields[key].src = createFirebaseStorageUrl(remotePath, token)
 
-          await db.collection('illustration').add(parsedFields[key])
+          await db
+            .collection('illustration')
+            .add(parsedFields[key])
+            .catch(error => {
+              res.status(400).json(error)
+            })
         })
 
         res.status(201).json({ status: 'success' })
