@@ -65,7 +65,7 @@ async function handler(req, res) {
             })
         })
 
-        res.status(201).json({ status: 'success' })
+        res.status(201).json(Object.values(parsedFields))
       })
     }
   } catch (error) {

@@ -10,10 +10,12 @@ function createIllustrationAPI(data) {
     data: objectToFormData(
       data.reduce((obj, value) => ({ ...obj, [value.order]: value }), {})
     ),
-  }).catch(error => {
-    if (error.response) throw new Error(error.response.data.message)
-    throw error
   })
+    .then(response => response.data)
+    .catch(error => {
+      if (error.response) throw new Error(error.response.data.message)
+      throw error
+    })
 }
 
 function useCreateIllustration() {

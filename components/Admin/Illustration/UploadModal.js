@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Modal, Upload, Button } from 'antd'
 import { InboxOutlined } from '@ant-design/icons'
+import { useQueryClient } from 'react-query'
 import useIllustration from 'components/api/useIllustration'
 import useCreateIllustration from 'components/api/useCreateIllustration'
 
@@ -51,7 +52,8 @@ function UploadModal({ closeModal }) {
     setImages(newImages)
   }
 
-  const { data, refetch } = useIllustration()
+  const queryClient = useQueryClient()
+  const { data, queryKey } = useIllustration()
   const { submit, isLoading } = useCreateIllustration()
 
   function onSubmit() {
@@ -63,9 +65,9 @@ function UploadModal({ closeModal }) {
       }
     })
     submit(submitData, {
-      onSuccess: () => {
+      onSuccess: newData => {
         closeModal()
-        refetch()
+        queryClient.setQueryData(queryKey, oldData => [...oldData, ...newData])
       },
     })
   }
