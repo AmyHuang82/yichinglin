@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import Header from 'components/Header/Header'
 import Footer from 'components/Footer/Footer'
-import YichingLin from 'components/YichingLin/YichingLin'
+import About from 'components/About/About'
 import { Container } from 'components/Common/style'
 import { BASE_TITLE, ABOUT_PAGE } from 'constants/headInfo'
 
-function About() {
+function AboutPage() {
   return (
     <>
       <Head>
@@ -13,11 +13,11 @@ function About() {
       </Head>
       <Header isAbout />
       <Container>
-        <YichingLin />
+        <About />
         <Footer />
       </Container>
     </>
   )
 }
 
-export default About
+export default AboutPage

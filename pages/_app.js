@@ -1,5 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
 import { normalize } from 'polished'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+
+const queryClient = new QueryClient()
 
 const GlobalStyle = createGlobalStyle`
   ${normalize()}
@@ -34,10 +38,11 @@ const GlobalStyle = createGlobalStyle`
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <GlobalStyle />
       <Component {...pageProps} />
-    </>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   )
 }
 

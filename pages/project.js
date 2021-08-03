@@ -4,7 +4,7 @@ import Footer from 'components/Footer/Footer'
 import { Container } from 'components/Common/style'
 import { BASE_TITLE, PROJECT_PAGE } from 'constants/headInfo'
 
-function Project() {
+function ProjectPage() {
   return (
     <>
       <Head>
@@ -19,4 +19,4 @@ function Project() {
   )
 }
 
-export default Project
+export default ProjectPage
