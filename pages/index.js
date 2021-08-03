@@ -5,7 +5,7 @@ import Illustrations from 'components/Illustrations/Illustrations'
 import { Container } from 'components/Common/style'
 import { BASE_TITLE, ILLUSTRATION_PAGE } from 'constants/headInfo'
 
-function Home() {
+function HomePage() {
   return (
     <>
       <Head>
@@ -20,4 +20,4 @@ function Home() {
   )
 }
 
-export default Home
+export default HomePage

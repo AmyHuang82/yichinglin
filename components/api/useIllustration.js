@@ -4,7 +4,7 @@ import { useQuery } from 'react-query'
 function fetchIllustrationAPI() {
   return axios
     .get('/api/illustration')
-    .then(response => response.data.sort((a, b) => b.order - a.order))
+    .then(response => response.data)
     .catch(error => {
       if (error.response) throw new Error(error.response.data.message)
       throw error
@@ -12,8 +12,10 @@ function fetchIllustrationAPI() {
 }
 
 function useIllustration() {
+  const queryKey = 'fetchIllustrationAPI'
+
   const { isSuccess, data } = useQuery({
-    queryKey: 'fetchIllustrationAPI',
+    queryKey,
     queryFn: fetchIllustrationAPI,
     staleTime: Infinity,
   })
@@ -21,6 +23,7 @@ function useIllustration() {
   return {
     data: data || [],
     isSuccess,
+    queryKey,
   }
 }
 
