@@ -52,6 +52,8 @@ async function handler(req, res) {
           })
 
           parsedFields[key].src = createFirebaseStorageUrl(remotePath, token)
+
+          await db.collection('illustration').add(parsedFields[key])
         })
 
         res.status(201).json({ status: 'success' })
