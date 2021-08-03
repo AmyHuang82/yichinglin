@@ -67,7 +67,9 @@ function UploadModal({ closeModal }) {
     submit(submitData, {
       onSuccess: newData => {
         closeModal()
-        queryClient.setQueryData(queryKey, oldData => [...oldData, ...newData])
+        queryClient.setQueryData(queryKey, oldData =>
+          [...newData, ...oldData].sort((a, b) => b.order - a.order)
+        )
       },
     })
   }

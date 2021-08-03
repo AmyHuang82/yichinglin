@@ -19,7 +19,7 @@ function Illustration() {
         </Row>
         <Table
           rowKey="id"
-          dataSource={data.sort((a, b) => b.order - a.order)}
+          dataSource={data}
           pagination={false}
           scroll={{ y: '60vh' }}
           columns={[
