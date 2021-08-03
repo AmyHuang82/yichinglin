@@ -55,10 +55,13 @@ function UploadModal({ closeModal }) {
   const { submit, isLoading } = useCreateIllustration()
 
   function onSubmit() {
-    const submitData = images.map((image, index) => ({
-      ...image,
-      order: data[0].order + 1 + index,
-    }))
+    const submitData = images.map((image, index) => {
+      const currentOrder = index + 1
+      return {
+        ...image,
+        order: data[0] ? data[0].order + currentOrder : currentOrder,
+      }
+    })
     submit(submitData, {
       onSuccess: () => {
         closeModal()
