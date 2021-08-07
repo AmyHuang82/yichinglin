@@ -3,6 +3,7 @@ import { Menu } from 'antd'
 import firebase from 'firebase/frontend'
 import LoginModal from './LoginModal'
 import Illustration from './Illustration/Illustration'
+import { LogoutButton } from './Admin.style'
 
 const ILLUSTRATION_KEY = 'illustration'
 const PROJECT_KEY = 'project'
@@ -18,6 +19,14 @@ function Admin() {
     setCurrentKey(e.key)
   }
 
+  function logout() {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => setLoginUid(null))
+      .catch(error => console.login(error))
+  }
+
   useEffect(() => {
     firebase.auth().onAuthStateChanged(user => {
       if (user) setLoginUid(user.uid)
@@ -25,7 +34,8 @@ function Admin() {
     })
   }, [])
 
-  if (isAuthReady && !isLogin) return <LoginModal setLoginUid={setLoginUid} />
+  if (!isAuthReady) return null
+  if (!isLogin) return <LoginModal setLoginUid={setLoginUid} />
   return (
     <>
       <Menu
@@ -36,6 +46,7 @@ function Admin() {
         <Menu.Item key={ILLUSTRATION_KEY}>Illustration 管理</Menu.Item>
         <Menu.Item key={PROJECT_KEY}>Project 管理</Menu.Item>
       </Menu>
+      <LogoutButton onClick={logout}>登出</LogoutButton>
       {currentKey === ILLUSTRATION_KEY && <Illustration />}
       {currentKey === PROJECT_KEY && <div>Project 管理</div>}
     </>
