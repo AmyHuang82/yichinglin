@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Modal, Upload, Button } from 'antd'
+import { Modal, Upload, Button, message } from 'antd'
 import { InboxOutlined } from '@ant-design/icons'
 import { useQueryClient } from 'react-query'
 import useIllustration from 'components/api/useIllustration'
@@ -70,6 +70,11 @@ function UploadModal({ closeModal }) {
         queryClient.setQueryData(queryKey, oldData =>
           [...newData, ...oldData].sort((a, b) => b.order - a.order)
         )
+        message.success('新增成功')
+      },
+      onError: () => {
+        closeModal()
+        message.error('新增失敗')
       },
     })
   }
