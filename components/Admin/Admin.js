@@ -34,7 +34,8 @@ function Admin() {
     })
   }, [])
 
-  if (isAuthReady && !isLogin) return <LoginModal setLoginUid={setLoginUid} />
+  if (!isAuthReady) return null
+  if (!isLogin) return <LoginModal setLoginUid={setLoginUid} />
   return (
     <>
       <Menu
