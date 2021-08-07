@@ -1,16 +1,35 @@
 import { useState } from 'react'
-import { Button, Table, Modal } from 'antd'
+import { Button, Table, Modal, message } from 'antd'
+import { useQueryClient } from 'react-query'
 import NewTabLink from 'components/Common/NewTabLink'
 import useIllustration from 'components/api/useIllustration'
+import useDeleteIllustration from 'components/api/useDeleteIllustration'
 import { Container, Row, DeleteIcon } from '../Admin.style'
 import UploadModal from './UploadModal'
 
 function Illustration() {
-  const { data } = useIllustration()
+  const { data, queryKey } = useIllustration()
   const [modalVisible, setModalVisible] = useState(false)
 
-  function deleteIllustration({ id, name, src }) {
-    console.log(id, name, src)
+  const queryClient = useQueryClient()
+  const { submit } = useDeleteIllustration()
+
+  function deleteIllustration(id, name) {
+    submit(
+      { id, name },
+      {
+        onSuccess: () => {
+          queryClient.setQueryData(queryKey, oldData =>
+            oldData.filter(data => data.id !== id)
+          )
+
+          message.success('刪除成功')
+        },
+        onError: () => {
+          message.error('刪除失敗')
+        },
+      }
+    )
   }
 
   function confirm({ id, name, src }) {
@@ -21,7 +40,7 @@ function Illustration() {
         content: <NewTabLink href={src}>{name}</NewTabLink>,
         cancelText: '取消',
         okText: '刪除',
-        onOk: () => deleteIllustration({ id, name, src }),
+        onOk: () => deleteIllustration(id, name),
       })
     }
   }
