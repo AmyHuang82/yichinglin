@@ -1,12 +1,33 @@
 import { useState } from 'react'
-import { Button, Table } from 'antd'
+import { Button, Table, Modal } from 'antd'
 import useIllustration from 'components/api/useIllustration'
-import { Container, Row } from '../Admin.style'
+import { Container, Row, DeleteIcon } from '../Admin.style'
 import UploadModal from './UploadModal'
 
 function Illustration() {
   const { data } = useIllustration()
   const [modalVisible, setModalVisible] = useState(false)
+
+  function deleteIllustration({ id, name, src }) {
+    console.log(id, name, src)
+  }
+
+  function confirm({ id, name, src }) {
+    return () => {
+      Modal.confirm({
+        centered: true,
+        title: '你確認要刪除這個圖片嗎？',
+        content: (
+          <a target="_blank" rel="noreferrer" href={src}>
+            {name}
+          </a>
+        ),
+        cancelText: '取消',
+        okText: '刪除',
+        onOk: () => deleteIllustration({ id, name, src }),
+      })
+    }
+  }
 
   return (
     <>
@@ -41,6 +62,13 @@ function Illustration() {
                 <a target="_blank" rel="noreferrer" href={src}>
                   點擊查看
                 </a>
+              ),
+            },
+            {
+              title: '操作',
+              key: 'action',
+              render: ({ id, name, src }) => (
+                <DeleteIcon onClick={confirm({ id, name, src })} />
               ),
             },
           ]}
