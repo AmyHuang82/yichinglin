@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Button, Table, Modal } from 'antd'
+import NewTabLink from 'components/Common/NewTabLink'
 import useIllustration from 'components/api/useIllustration'
 import { Container, Row, DeleteIcon } from '../Admin.style'
 import UploadModal from './UploadModal'
@@ -17,11 +18,7 @@ function Illustration() {
       Modal.confirm({
         centered: true,
         title: '你確認要刪除這個圖片嗎？',
-        content: (
-          <a target="_blank" rel="noreferrer" href={src}>
-            {name}
-          </a>
-        ),
+        content: <NewTabLink href={src}>{name}</NewTabLink>,
         cancelText: '取消',
         okText: '刪除',
         onOk: () => deleteIllustration({ id, name, src }),
@@ -58,11 +55,7 @@ function Illustration() {
             {
               title: '圖片連結',
               dataIndex: 'src',
-              render: src => (
-                <a target="_blank" rel="noreferrer" href={src}>
-                  點擊查看
-                </a>
-              ),
+              render: src => <NewTabLink href={src}>點擊查看</NewTabLink>,
             },
             {
               title: '操作',
