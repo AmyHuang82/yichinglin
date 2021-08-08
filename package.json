@@ -26,6 +26,8 @@
     "object-to-formdata": "^4.1.0",
     "polished": "^4.1.1",
     "react": "17.0.2",
+    "react-dnd": "^14.0.2",
+    "react-dnd-html5-backend": "^14.0.0",
     "react-dom": "17.0.2",
     "react-query": "^3.16.0",
     "styled-components": "^5.2.3",
