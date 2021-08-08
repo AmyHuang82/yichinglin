@@ -41,7 +41,7 @@ class MyDocument extends Document {
           <meta name="keywords" content={KEYWORDS} />
           <meta
             property="og:image"
-            content="https://yichinglin.vercel.app/avata.jpg"
+            content="https://yichinglin.vercel.app/avatar.jpg"
           />
           <meta property="og:image:width" content="500" />
           <meta property="og:image:height" content="500" />
