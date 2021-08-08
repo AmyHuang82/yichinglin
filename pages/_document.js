@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import { KEYWORDS } from 'constants/headInfo'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -37,6 +38,7 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Cookie&family=Open+Sans:wght@400;700&display=swap"
             rel="stylesheet"
           />
+          <meta name="keywords" content={KEYWORDS} />
         </Head>
         <body>
           <Main />

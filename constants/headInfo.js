@@ -10,3 +10,5 @@ export const DESCRIPTIONS = {
   ABOUT_PAGE:
     '從小喜歡繪本、喜歡畫畫，長大後跟著爸爸走入山林、愛上賞鳥。希望能將大自然給予的種種驚喜，透過一支畫筆分享給大家。',
 }
+
+export const KEYWORDS = 'illustration,yiching,bird,wild bird'
