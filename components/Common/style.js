@@ -9,7 +9,7 @@ import {
 
 export const Container = styled.div`
   width: 100%;
-  min-height: calc(100vh - ${HEADER_HEIGHT}px - ${MOBILE_MENU_HEIGHT}px);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   flex: 0 0 auto;
