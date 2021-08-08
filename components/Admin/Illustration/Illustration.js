@@ -1,14 +1,20 @@
 import { useState } from 'react'
 import { Button, Table, Modal, message } from 'antd'
 import { useQueryClient } from 'react-query'
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
+import DraggableBodyRow from 'components/Common/DraggableBodyRow'
 import NewTabLink from 'components/Common/NewTabLink'
 import useIllustration from 'components/api/useIllustration'
 import useDeleteIllustration from 'components/api/useDeleteIllustration'
 import { Container, Row, DeleteIcon } from '../Admin.style'
 import UploadModal from './UploadModal'
+import useRows from './useRows'
 
 function Illustration() {
-  const { data, queryKey } = useIllustration()
+  const [rows, moveRow, canDrag] = useRows()
+
+  const { queryKey } = useIllustration()
   const [modalVisible, setModalVisible] = useState(false)
 
   const queryClient = useQueryClient()
@@ -54,37 +60,48 @@ function Illustration() {
             + 新增作品
           </Button>
         </Row>
-        <Table
-          rowKey="id"
-          dataSource={data}
-          pagination={false}
-          scroll={{ y: '60vh' }}
-          columns={[
-            {
-              title: '排序',
-              key: 'index',
-              render: (_, __, index) => index + 1,
-            },
-            { title: '名稱', dataIndex: 'name' },
-            {
-              title: '尺寸（寬 x 高）',
-              key: 'size',
-              render: ({ width, height }) => `${width} x ${height}`,
-            },
-            {
-              title: '圖片連結',
-              dataIndex: 'src',
-              render: src => <NewTabLink href={src}>點擊查看</NewTabLink>,
-            },
-            {
-              title: '操作',
-              key: 'action',
-              render: ({ id, name, src }) => (
-                <DeleteIcon onClick={confirm({ id, name, src })} />
-              ),
-            },
-          ]}
-        />
+        <DndProvider backend={HTML5Backend}>
+          <Table
+            rowKey="id"
+            dataSource={rows}
+            pagination={false}
+            scroll={{ y: '60vh' }}
+            onRow={(_, index) => ({
+              index,
+              moveRow: canDrag ? moveRow : () => {},
+            })}
+            components={{
+              body: {
+                row: DraggableBodyRow,
+              },
+            }}
+            columns={[
+              {
+                title: '排序',
+                key: 'index',
+                render: (_, __, index) => index + 1,
+              },
+              { title: '名稱', dataIndex: 'name' },
+              {
+                title: '尺寸（寬 x 高）',
+                key: 'size',
+                render: ({ width, height }) => `${width} x ${height}`,
+              },
+              {
+                title: '圖片連結',
+                dataIndex: 'src',
+                render: src => <NewTabLink href={src}>點擊查看</NewTabLink>,
+              },
+              {
+                title: '操作',
+                key: 'action',
+                render: ({ id, name, src }) => (
+                  <DeleteIcon onClick={confirm({ id, name, src })} />
+                ),
+              },
+            ]}
+          />
+        </DndProvider>
       </Container>
       {modalVisible && (
         <UploadModal closeModal={() => setModalVisible(false)} />
