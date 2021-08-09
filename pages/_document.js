@@ -43,8 +43,8 @@ class MyDocument extends Document {
             property="og:image"
             content="https://yichinglin.vercel.app/main_image.jpg"
           />
-          <meta property="og:image:width" content="500" />
-          <meta property="og:image:height" content="500" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
         </Head>
         <body>
           <Main />
