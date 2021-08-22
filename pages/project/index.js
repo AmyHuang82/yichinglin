@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Header from 'components/Header/Header'
 import Footer from 'components/Footer/Footer'
+import Project from 'components/Project/Project'
 import { Container } from 'components/Common/style'
 import { BASE_TITLE, PROJECT_PAGE, DESCRIPTIONS } from 'constants/headInfo'
 
@@ -17,7 +18,7 @@ function ProjectPage() {
       </Head>
       <Header isProject />
       <Container>
-        <div>Project</div>
+        <Project />
         <Footer />
       </Container>
     </>
