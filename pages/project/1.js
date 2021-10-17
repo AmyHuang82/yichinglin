@@ -7,16 +7,18 @@ import { SITE_URL, BASE_TITLE, PROJECT_PAGE } from 'constants/headInfo'
 import data from 'components/Project/data'
 
 function AnimalWhisperer() {
+  const { title, description, cover } = data[0]
+
   return (
     <>
       <Head>
         <title>{`${BASE_TITLE} - ${PROJECT_PAGE}`}</title>
-        <meta name="description" content={data.description} />
+        <meta name="description" content={description} />
         <meta property="og:url" content={SITE_URL} />
         <meta property="og:site_name" content={BASE_TITLE} />
-        <meta property="og:title" content={data.title} />
-        <meta name="og:description" content={data.description} />
-        <meta property="og:image" content={data.cover} />
+        <meta property="og:title" content={title} />
+        <meta name="og:description" content={description} />
+        <meta property="og:image" content={cover} />
       </Head>
       <Header isProject />
       <Container>
