@@ -5,6 +5,7 @@ import About from 'components/About/About'
 import { Container } from 'components/Common/style'
 import {
   SITE_URL,
+  SITE_IMAGE,
   BASE_TITLE,
   ABOUT_PAGE,
   DESCRIPTIONS,
@@ -20,6 +21,7 @@ function AboutPage() {
         <meta property="og:site_name" content={BASE_TITLE} />
         <meta property="og:title" content={BASE_TITLE} />
         <meta name="og:description" content={DESCRIPTIONS.ABOUT_PAGE} />
+        <meta property="og:image" content={SITE_IMAGE} />
       </Head>
       <Header isAbout />
       <Container>

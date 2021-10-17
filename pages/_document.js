@@ -39,10 +39,6 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <meta name="keywords" content={KEYWORDS} />
-          <meta
-            property="og:image"
-            content="https://yichinglin.vercel.app/main_image.jpg"
-          />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
         </Head>

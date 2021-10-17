@@ -5,6 +5,7 @@ import Project from 'components/Project/Project'
 import { Container } from 'components/Common/style'
 import {
   SITE_URL,
+  SITE_IMAGE,
   BASE_TITLE,
   PROJECT_PAGE,
   DESCRIPTIONS,
@@ -20,6 +21,7 @@ function ProjectPage() {
         <meta property="og:site_name" content={BASE_TITLE} />
         <meta property="og:title" content={BASE_TITLE} />
         <meta name="og:description" content={DESCRIPTIONS.PROJECT_PAGE} />
+        <meta property="og:image" content={SITE_IMAGE} />
       </Head>
       <Header isProject />
       <Container>

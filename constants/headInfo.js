@@ -1,4 +1,6 @@
 export const SITE_URL = 'https://yichinglin.vercel.app'
+export const SITE_IMAGE = 'https://yichinglin.vercel.app/main_image.jpg'
+
 export const BASE_TITLE = 'Yiching Lin Illustration'
 export const ILLUSTRATION_PAGE = 'Illustration'
 export const PROJECT_PAGE = 'Project'
