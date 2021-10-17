@@ -15,11 +15,14 @@ function Content({ id: currentId }) {
       </Figure>
       <Info>
         <Info.Content>
-          <Info.Title>CLIENT</Info.Title>
-          {client}
-          <br />
-          <Info.Title>ILLUSTRATION</Info.Title>
-          Yiching Lin
+          <Info.Wrapper>
+            <Info.Title>CLIENT</Info.Title>
+            {client}
+          </Info.Wrapper>
+          <Info.Wrapper>
+            <Info.Title>ILLUSTRATION</Info.Title>
+            Yiching Lin
+          </Info.Wrapper>
         </Info.Content>
       </Info>
       <HTMLContainer

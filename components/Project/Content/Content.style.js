@@ -56,7 +56,11 @@ Info.Content = styled.div`
   }
 `
 
-Info.Title = styled.span`
+Info.Wrapper = styled.div`
+  display: flex;
+`
+
+Info.Title = styled.div`
   color: ${CAMOUFLAGE_GREEN};
   font-weight: 700;
   margin-right: 10px;
