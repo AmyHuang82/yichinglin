@@ -11,11 +11,11 @@ function AnimalWhisperer() {
     <>
       <Head>
         <title>{`${BASE_TITLE} - ${PROJECT_PAGE}`}</title>
-        <meta name="description" content={data.subtitle} />
+        <meta name="description" content={data.description} />
         <meta property="og:url" content="https://yichinglin.vercel.app" />
         <meta property="og:site_name" content={BASE_TITLE} />
         <meta property="og:title" content={data.title} />
-        <meta name="og:description" content={data.subtitle} />
+        <meta name="og:description" content={data.description} />
         <meta property="og:image" content={data.cover} />
       </Head>
       <Header isProject />

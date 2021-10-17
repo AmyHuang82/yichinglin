@@ -85,7 +85,7 @@ export const Title = styled.div`
   color: ${DARK_BLACK};
 `
 
-export const Subtitle = styled.div`
+export const Description = styled.div`
   margin-top: 6px;
   font-size: 1rem;
   line-height: 1.5rem;

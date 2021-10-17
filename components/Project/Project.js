@@ -5,13 +5,13 @@ import data from './data'
 function Project() {
   return (
     <Container>
-      {data.map(({ id, title, cover, subtitle }) => (
+      {data.map(({ id, title, cover, description }) => (
         <Card
           key={id}
           id={id}
           cover={cover}
           title={title}
-          subtitle={subtitle}
+          description={description}
         />
       ))}
     </Container>

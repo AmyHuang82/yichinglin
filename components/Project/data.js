@@ -2,7 +2,7 @@ const data = [
   {
     id: 1,
     title: '品牌形象插畫｜動物溝通',
-    subtitle: '希塔動物溝通 Facebook Cover Photo & Line 選單',
+    description: '希塔動物溝通 Facebook Cover Photo & Line 選單',
     cover:
       'https://firebasestorage.googleapis.com/v0/b/ching-illustration.appspot.com/o/project%2F%E5%8B%95%E7%89%A9%E6%BA%9D%E9%80%9A_%E9%A6%96%E5%9C%96.jpg?alt=media&token=964c9244-3904-4f94-a235-88c321274eb7',
     contentCover: {

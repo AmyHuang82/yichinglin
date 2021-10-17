@@ -6,10 +6,10 @@ import {
   Img,
   TitleWrapper,
   Title,
-  Subtitle,
+  Description,
 } from './Card.style'
 
-function Card({ id, cover, title, subtitle }) {
+function Card({ id, cover, title, description }) {
   return (
     <Link href={`${PROJECT_URL}/${id}`}>
       <Wrapper>
@@ -17,7 +17,7 @@ function Card({ id, cover, title, subtitle }) {
           <Img url={cover} />
           <TitleWrapper>
             <Title>{title}</Title>
-            <Subtitle>{subtitle}</Subtitle>
+            <Description>{description}</Description>
           </TitleWrapper>
         </Content>
       </Wrapper>
