@@ -19,7 +19,7 @@ function AnimalWhisperer() {
       </Head>
       <Header isProject />
       <Container>
-        <Content id="animal_whisperer" />
+        <Content id={1} />
         <Footer />
       </Container>
     </>
