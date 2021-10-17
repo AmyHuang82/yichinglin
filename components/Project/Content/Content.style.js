@@ -41,11 +41,12 @@ export const Info = styled.div`
 `
 
 Info.Content = styled.div`
-  margin-left: 25px;
+  margin-left: 15px;
   font-size: 1rem;
   line-height: 1.5rem;
 
   ${media.pad} {
+    margin-left: 25px;
     font-size: 1.25rem;
     line-height: 2rem;
   }
