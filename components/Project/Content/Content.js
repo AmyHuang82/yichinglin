@@ -1,8 +1,8 @@
 import data from '../data'
-import { Container, Title, Figure, Info } from './Content.style'
+import { Container, Title, Figure, Info, HTMLContainer } from './Content.style'
 
 function Content({ id: currentId }) {
-  const { title, contentCover, client } = data.filter(
+  const { title, contentCover, client, html } = data.filter(
     ({ id }) => id === currentId
   )[0]
 
@@ -10,8 +10,8 @@ function Content({ id: currentId }) {
     <Container>
       <Title>{title}</Title>
       <Figure>
-        <Figure.Img src={contentCover.url} />
-        <Figure.Figcaption>{contentCover.label} </Figure.Figcaption>
+        <img src={contentCover.url} />
+        <figcaption>{contentCover.label} </figcaption>
       </Figure>
       <Info>
         <Info.Content>
@@ -22,6 +22,11 @@ function Content({ id: currentId }) {
           Yiching Lin
         </Info.Content>
       </Info>
+      <HTMLContainer
+        dangerouslySetInnerHTML={{
+          __html: html,
+        }}
+      />
     </Container>
   )
 }
