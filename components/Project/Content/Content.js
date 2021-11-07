@@ -10,7 +10,7 @@ function Content({ id: currentId }) {
     <Container>
       <Title>{title}</Title>
       <Figure>
-        <img src={contentCover.url} />
+        <img alt={contentCover.label} src={contentCover.url} />
         <figcaption>{contentCover.label} </figcaption>
       </Figure>
       <Info>
