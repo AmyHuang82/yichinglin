@@ -41,6 +41,10 @@ class MyDocument extends Document {
           <meta name="keywords" content={KEYWORDS} />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
+          <meta
+            name="google-site-verification"
+            content="PxJJkr4ZNNQr9k9nTGyLx0tdWKR_AN0uXiKZqPjIsBE"
+          />
         </Head>
         <body>
           <Main />
