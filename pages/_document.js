@@ -43,7 +43,7 @@ class MyDocument extends Document {
           <meta property="og:image:height" content="630" />
           <meta
             name="google-site-verification"
-            content="PxJJkr4ZNNQr9k9nTGyLx0tdWKR_AN0uXiKZqPjIsBE"
+            content="eL4UO32toSy7YoBmSlrh6Md3ld0Q5iYy1nRFCIUsv3o"
           />
         </Head>
         <body>
