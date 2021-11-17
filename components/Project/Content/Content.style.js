@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { lighten } from 'polished'
 import { media } from 'utils/styleUtils'
-import { NOBEL_GRAY, CAMOUFLAGE_GREEN } from 'constants/colors'
+import { DARK_BLACK, NOBEL_GRAY, CAMOUFLAGE_GREEN } from 'constants/colors'
 
 export const Container = styled.div`
   width: 100%;
@@ -24,6 +24,7 @@ export const Title = styled.h1`
   font-weight: 700;
   margin-top: 10px;
   margin-bottom: 30px;
+  color: ${DARK_BLACK};
 
   ${media.pad} {
     font-size: ${1.5}rem;
