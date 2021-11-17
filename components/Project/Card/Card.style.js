@@ -47,7 +47,7 @@ export const Wrapper = styled.div`
 
   :hover {
     top: -3px;
-    box-shadow: 0 10px 10px 0 ${transparentize(0.5, NOBEL_GRAY)};
+    box-shadow: 0 5px 10px 0 ${transparentize(0.7, NOBEL_GRAY)};
   }
 `
 
