@@ -32,6 +32,7 @@ export const Title = styled.h1`
 
 const figureStyle = css`
   margin: 0 0 30px;
+  font-size: 0.875rem;
 
   img {
     width: 100%;
@@ -64,11 +65,6 @@ Info.Content = styled.div`
   margin-left: 18px;
   font-size: 1rem;
   line-height: 1.5rem;
-
-  ${media.pad} {
-    margin-left: 20px;
-    font-size: 1.25rem;
-    line-height: 2rem;
   }
 `
 
@@ -86,11 +82,6 @@ export const HTMLContainer = styled.div`
   p {
     font-size: 1rem;
     line-height: 1.5rem;
-
-    ${media.pad} {
-      font-size: 1.25rem;
-      line-height: 2rem;
-    }
   }
 
   figure {
