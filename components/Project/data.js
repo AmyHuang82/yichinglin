@@ -2,6 +2,7 @@ const data = [
   {
     id: 'australasian_grass_owl_giveaways_illustration',
     order: 1,
+    date: 'April, 2021',
     title: '文宣品插畫｜屏東林管處草鴞保育推廣',
     description: '毛巾及手機支架',
     cover:
@@ -22,6 +23,7 @@ const data = [
   {
     id: 'animal_communicator_brand_illustration',
     order: 2,
+    date: 'May, 2021',
     title: '品牌形象插畫｜希塔動物溝通',
     description: '粉絲專頁 Cover Photo & Line 官方帳號選單',
     cover:
@@ -40,6 +42,7 @@ const data = [
   {
     id: 'forestry_bureau_pingtung_event_key_visual_illustration',
     order: 3,
+    date: 'October, 2021',
     title: '主視覺｜屏東林業小棧 職人森活指南',
     description: '活動宣傳海報及製作物',
     cover:

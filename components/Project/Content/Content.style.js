@@ -12,10 +12,16 @@ export const Container = styled.div`
   }
 `
 
+export const Date = styled.div`
+  text-align: center;
+  color: ${NOBEL_GRAY};
+`
+
 export const Title = styled.h1`
   text-align: center;
   font-size: ${1.25}rem;
   font-weight: 700;
+  margin-top: 10px;
   margin-bottom: 30px;
 
   ${media.pad} {
