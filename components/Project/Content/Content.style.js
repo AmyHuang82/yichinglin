@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
+import { lighten } from 'polished'
 import { media } from 'utils/styleUtils'
-import { NOBEL_GRAY, CAMOUFLAGE_GREEN } from 'constants/colors'
+import { DARK_BLACK, NOBEL_GRAY, CAMOUFLAGE_GREEN } from 'constants/colors'
 
 export const Container = styled.div`
   width: 100%;
@@ -12,11 +13,18 @@ export const Container = styled.div`
   }
 `
 
+export const Date = styled.div`
+  text-align: center;
+  color: ${NOBEL_GRAY};
+`
+
 export const Title = styled.h1`
   text-align: center;
   font-size: ${1.25}rem;
   font-weight: 700;
+  margin-top: 10px;
   margin-bottom: 30px;
+  color: ${DARK_BLACK};
 
   ${media.pad} {
     font-size: ${1.5}rem;
@@ -24,7 +32,8 @@ export const Title = styled.h1`
 `
 
 const figureStyle = css`
-  margin: 0 0 30px;
+  margin: 30px 0;
+  font-size: 0.875rem;
 
   img {
     width: 100%;
@@ -40,19 +49,23 @@ export const Figure = styled.figure`
 `
 
 export const Info = styled.div`
-  border-left: 6px solid ${CAMOUFLAGE_GREEN};
-  margin-bottom: 30px;
+  position: relative;
+  margin: 40px 0;
+`
+
+Info.Border = styled.div`
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 0;
+  width: 5px;
+  background: ${lighten(0.3, CAMOUFLAGE_GREEN)};
 `
 
 Info.Content = styled.div`
-  margin-left: 15px;
+  margin-left: 18px;
   font-size: 1rem;
   line-height: 1.5rem;
-
-  ${media.pad} {
-    margin-left: 25px;
-    font-size: 1.25rem;
-    line-height: 2rem;
   }
 `
 
@@ -70,11 +83,6 @@ export const HTMLContainer = styled.div`
   p {
     font-size: 1rem;
     line-height: 1.5rem;
-
-    ${media.pad} {
-      font-size: 1.25rem;
-      line-height: 2rem;
-    }
   }
 
   figure {

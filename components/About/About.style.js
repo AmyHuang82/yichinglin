@@ -39,15 +39,11 @@ export const InfoWrapper = styled.div`
   width: 100%;
   padding: 0 ${MOBILE_SIDE_SPACE}px;
   font-size: 1rem;
-  line-height: 2rem;
-  letter-spacing: 0.1rem;
+  line-height: 1.8rem;
 
   ${media.pad} {
     width: calc(${100 - AVATAR_DESKTOP_WIDTH}% - ${2 * DESKTOP_SIDE_SPACE}px);
     padding: ${DESKTOP_SIDE_SPACE}px;
-    font-size: 0.875rem;
-    line-height: 1.75rem;
-    letter-spacing: 0.0875rem;
   }
 `
 

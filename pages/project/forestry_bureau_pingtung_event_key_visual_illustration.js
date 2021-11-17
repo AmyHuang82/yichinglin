@@ -6,7 +6,7 @@ import { Container } from 'components/Common/style'
 import { SITE_URL, BASE_TITLE, PROJECT_PAGE } from 'constants/headInfo'
 import data from 'components/Project/data'
 
-function Forest() {
+function ForestryBureau() {
   const { title, description, cover } = data[1]
 
   return (
@@ -22,11 +22,11 @@ function Forest() {
       </Head>
       <Header isProject />
       <Container>
-        <Content id={2} />
+        <Content id="forestry_bureau_pingtung_event_key_visual_illustration" />
         <Footer />
       </Container>
     </>
   )
 }
 
-export default Forest
+export default ForestryBureau

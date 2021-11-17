@@ -6,8 +6,8 @@ import { Container } from 'components/Common/style'
 import { SITE_URL, BASE_TITLE, PROJECT_PAGE } from 'constants/headInfo'
 import data from 'components/Project/data'
 
-function AnimalWhisperer() {
-  const { title, description, cover } = data[0]
+function AustralasianGrassOwl() {
+  const { title, description, cover } = data[2]
 
   return (
     <>
@@ -22,11 +22,11 @@ function AnimalWhisperer() {
       </Head>
       <Header isProject />
       <Container>
-        <Content id={1} />
+        <Content id="australasian_grass_owl_giveaways_illustration" />
         <Footer />
       </Container>
     </>
   )
 }
 
-export default AnimalWhisperer
+export default AustralasianGrassOwl
