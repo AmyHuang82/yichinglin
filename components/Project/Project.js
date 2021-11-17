@@ -5,15 +5,17 @@ import data from './data'
 function Project() {
   return (
     <Container>
-      {data.map(({ id, title, cover, description }) => (
-        <Card
-          key={id}
-          id={id}
-          cover={cover}
-          title={title}
-          description={description}
-        />
-      ))}
+      {data
+        .sort((a, b) => b.order - a.order)
+        .map(({ id, title, cover, description }) => (
+          <Card
+            key={id}
+            id={id}
+            cover={cover}
+            title={title}
+            description={description}
+          />
+        ))}
     </Container>
   )
 }

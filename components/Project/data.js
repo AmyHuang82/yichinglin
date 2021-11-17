@@ -1,6 +1,7 @@
 const data = [
   {
     id: 1,
+    order: 2,
     title: '品牌形象插畫｜希塔動物溝通',
     description: '希塔動物溝通 Facebook Cover Photo & Line 選單',
     cover:
@@ -18,6 +19,7 @@ const data = [
   },
   {
     id: 2,
+    order: 3,
     title: '主視覺插畫｜屏東林業小棧 職人森活指南',
     description: '林務局屏東林區管理處活動海報、製作物',
     cover:
