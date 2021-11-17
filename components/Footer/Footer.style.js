@@ -7,9 +7,11 @@ export const StyledFooter = styled.div`
   text-align: center;
   margin: auto auto 0;
   padding-top: 20px;
+  color: ${NOBEL_GRAY};
 
   ${media.pad} {
     padding-top: 40px;
+    font-size: 12px;
   }
 `
 
