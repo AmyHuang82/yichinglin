@@ -31,7 +31,7 @@ export const Title = styled.h1`
 `
 
 const figureStyle = css`
-  margin: 0 0 30px;
+  margin: 30px 0;
   font-size: 0.875rem;
 
   img {
@@ -49,7 +49,7 @@ export const Figure = styled.figure`
 
 export const Info = styled.div`
   position: relative;
-  margin: 50px 0;
+  margin: 40px 0;
 `
 
 Info.Border = styled.div`
