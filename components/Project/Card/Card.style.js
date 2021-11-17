@@ -81,7 +81,7 @@ export const TitleWrapper = styled.div`
 export const Title = styled.div`
   margin-top: 10px;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   color: ${DARK_BLACK};
 `
 
@@ -90,4 +90,8 @@ export const Description = styled.div`
   font-size: 1rem;
   line-height: 1.5rem;
   color: ${NOBEL_GRAY};
+
+  ${media.pad} {
+    font-size: 0.875rem;
+  }
 `
