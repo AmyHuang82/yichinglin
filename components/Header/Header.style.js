@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
 `
 
 export const menuBackground = css`
-  background-color: ${transparentize(0.5, WHITE)};
+  background-color: ${transparentize(0.2, WHITE)};
 `
 
 export const StyledHeader = styled.header`
