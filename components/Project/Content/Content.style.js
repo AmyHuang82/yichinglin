@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { lighten } from 'polished'
 import { media } from 'utils/styleUtils'
 import { NOBEL_GRAY, CAMOUFLAGE_GREEN } from 'constants/colors'
 
@@ -46,17 +47,26 @@ export const Figure = styled.figure`
 `
 
 export const Info = styled.div`
-  border-left: 6px solid ${CAMOUFLAGE_GREEN};
-  margin-bottom: 30px;
+  position: relative;
+  margin: 50px 0;
+`
+
+Info.Border = styled.div`
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 0;
+  width: 5px;
+  background: ${lighten(0.3, CAMOUFLAGE_GREEN)};
 `
 
 Info.Content = styled.div`
-  margin-left: 15px;
+  margin-left: 18px;
   font-size: 1rem;
   line-height: 1.5rem;
 
   ${media.pad} {
-    margin-left: 25px;
+    margin-left: 20px;
     font-size: 1.25rem;
     line-height: 2rem;
   }

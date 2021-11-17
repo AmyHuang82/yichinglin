@@ -22,6 +22,7 @@ function Content({ id: currentId }) {
         <figcaption>{contentCover.label} </figcaption>
       </Figure>
       <Info>
+        <Info.Border />
         <Info.Content>
           <Info.Wrapper>
             <Info.Title>CLIENT</Info.Title>
