@@ -1,4 +1,4 @@
-import data from '../data'
+import getProjectData from '../getProjectData'
 import {
   Container,
   Date,
@@ -8,10 +8,8 @@ import {
   HTMLContainer,
 } from './Content.style'
 
-function Content({ id: currentId }) {
-  const { date, title, contentCover, client, html } = data.filter(
-    ({ id }) => id === currentId
-  )[0]
+function Content({ id }) {
+  const { date, title, contentCover, client, html } = getProjectData(id)
 
   return (
     <Container>

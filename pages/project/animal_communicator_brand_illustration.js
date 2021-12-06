@@ -4,10 +4,11 @@ import Footer from 'components/Footer/Footer'
 import Content from 'components/Project/Content/Content'
 import { Container } from 'components/Common/style'
 import { SITE_URL, BASE_TITLE, PROJECT_PAGE } from 'constants/headInfo'
-import data from 'components/Project/data'
+import getProjectData from 'components/Project/getProjectData'
 
 function AnimalCommunication() {
-  const { title, description, cover } = data[0]
+  const ID = 'animal_communicator_brand_illustration'
+  const { title, description, cover } = getProjectData(ID)
 
   return (
     <>
@@ -22,7 +23,7 @@ function AnimalCommunication() {
       </Head>
       <Header isProject />
       <Container>
-        <Content id="animal_communicator_brand_illustration" />
+        <Content id={ID} />
         <Footer />
       </Container>
     </>
