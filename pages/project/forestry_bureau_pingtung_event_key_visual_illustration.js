@@ -4,10 +4,11 @@ import Footer from 'components/Footer/Footer'
 import Content from 'components/Project/Content/Content'
 import { Container } from 'components/Common/style'
 import { SITE_URL, BASE_TITLE, PROJECT_PAGE } from 'constants/headInfo'
-import data from 'components/Project/data'
+import getProjectData from 'components/Project/getProjectData'
 
 function ForestryBureau() {
-  const { title, description, cover } = data[1]
+  const ID = 'forestry_bureau_pingtung_event_key_visual_illustration'
+  const { title, description, cover } = getProjectData(ID)
 
   return (
     <>
@@ -22,7 +23,7 @@ function ForestryBureau() {
       </Head>
       <Header isProject />
       <Container>
-        <Content id="forestry_bureau_pingtung_event_key_visual_illustration" />
+        <Content id={ID} />
         <Footer />
       </Container>
     </>
