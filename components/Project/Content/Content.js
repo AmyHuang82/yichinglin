@@ -1,4 +1,3 @@
-import getProjectData from '../getProjectData'
 import {
   Container,
   Date,
@@ -8,9 +7,7 @@ import {
   HTMLContainer,
 } from './Content.style'
 
-function Content({ id }) {
-  const { date, title, contentCover, client, html } = getProjectData(id)
-
+function Content({ project: { date, title, contentCover, client, html } }) {
   return (
     <Container>
       <Date>{date}</Date>

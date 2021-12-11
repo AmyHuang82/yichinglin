@@ -4,11 +4,22 @@ import Footer from 'components/Footer/Footer'
 import Content from 'components/Project/Content/Content'
 import { Container } from 'components/Common/style'
 import { SITE_URL, BASE_TITLE, PROJECT_PAGE } from 'constants/headInfo'
-import getProjectData from 'components/Project/getProjectData'
+import { getProjects, getProject } from 'lib/getProjectData'
 
-function AnimalCommunication() {
-  const ID = 'animal_communicator_brand_illustration'
-  const { title, description, cover } = getProjectData(ID)
+export function getStaticPaths() {
+  const paths = getProjects().map(({ id }) => ({
+    params: { id },
+  }))
+  return { paths, fallback: false }
+}
+
+export function getStaticProps({ params }) {
+  const project = getProject(params.id)
+  return { props: { project } }
+}
+
+function Project({ project }) {
+  const { title, description, cover } = project
 
   return (
     <>
@@ -23,11 +34,11 @@ function AnimalCommunication() {
       </Head>
       <Header isProject />
       <Container>
-        <Content id={ID} />
+        <Content project={project} />
         <Footer />
       </Container>
     </>
   )
 }
 
-export default AnimalCommunication
+export default Project

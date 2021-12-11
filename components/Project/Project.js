@@ -1,8 +1,10 @@
+import { getProjects } from 'lib/getProjectData'
 import { Container } from './Project.style'
 import Card from './Card/Card'
-import data from './data'
 
 function Project() {
+  const data = getProjects()
+
   return (
     <Container>
       {data
