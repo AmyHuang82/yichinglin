@@ -40,6 +40,10 @@ export const Wrapper = styled.div`
     margin-bottom: ${(100 - DESKTOP.WIDTH * 3) / 2}%;
 
     :nth-child(2n) {
+      margin-left: 0;
+    }
+
+    :nth-child(3n + 2) {
       margin-left: ${(100 - DESKTOP.WIDTH * 3) / 2}%;
       margin-right: ${(100 - DESKTOP.WIDTH * 3) / 2}%;
     }
