@@ -14,7 +14,7 @@ function Card({ id, cover, title, description }) {
     <Link href={`${PROJECT_URL}/${id}`}>
       <Wrapper>
         <Content>
-          <Img url={cover} />
+          <Img loading="lazy" url={cover} />
           <TitleWrapper>
             <Title>{title}</Title>
             <Description>{description}</Description>
