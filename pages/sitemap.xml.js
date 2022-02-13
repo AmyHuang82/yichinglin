@@ -5,7 +5,7 @@ import { getProjects } from 'lib/getProjectData'
 
 export const getServerSideProps = async ctx => {
   const links = [
-    SITE_URL,
+    `${SITE_URL}/`,
     `${SITE_URL}${ABOUT_URL}`,
     `${SITE_URL}${PROJECT_URL}`,
     ...getProjects().map(({ id }) => `${SITE_URL}${PROJECT_URL}/${id}`),
