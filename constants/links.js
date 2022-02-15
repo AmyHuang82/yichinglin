@@ -5,6 +5,7 @@ export const ABOUT_URL = '/about'
 
 // 外部連結
 export const INSTAGRAM_LINK = 'https://www.instagram.com/its_yiching'
+export const FACEBOOK_LINK = 'https://www.facebook.com/itsyiching'
 export const PINKOI_LINK = 'https://www.pinkoi.com/store/chingillustration'
 
 export const MAIL = 'yiching.lin0215@gmail.com'

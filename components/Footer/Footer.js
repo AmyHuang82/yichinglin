@@ -1,4 +1,10 @@
-import { INSTAGRAM_LINK, PINKOI_LINK, MAIL_LINK } from 'constants/links'
+import {
+  FACEBOOK_LINK,
+  INSTAGRAM_LINK,
+  PINKOI_LINK,
+  MAIL_LINK,
+} from 'constants/links'
+import FB from '../icons/Facebook'
 import IG from '../icons/Instagram'
 import Pinkoi from '../icons/Pinkoi'
 import Mail from '../icons/Mail'
@@ -8,6 +14,9 @@ function Footer() {
   return (
     <StyledFooter>
       <Icons>
+        <IconLink target="_blank" rel="noreferrer" href={FACEBOOK_LINK}>
+          <FB />
+        </IconLink>
         <IconLink target="_blank" rel="noreferrer" href={INSTAGRAM_LINK}>
           <IG />
         </IconLink>
