@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { lighten } from 'polished'
 import { media } from 'utils/styleUtils'
 import { WHITE, BLACK, NOBEL_GRAY, CAMOUFLAGE_GREEN } from 'constants/colors'
 
@@ -80,6 +81,7 @@ Contact.IconLink = styled.a`
   width: fit-content;
   color: ${BLACK};
   letter-spacing: 0;
+  font-size: 0.875rem;
 
   ${media.pad} {
     letter-spacing: 0.05rem;
@@ -90,7 +92,8 @@ Contact.IconLink = styled.a`
   }
 
   svg {
-    width: 20px;
+    height: 18px;
+    width: 18px;
     margin-right: 10px;
   }
 
@@ -103,9 +106,17 @@ Contact.IconLink = styled.a`
 `
 
 Contact.Links = styled.div`
-  display: flex;
+  position: relative;
+  margin-top: 10px;
+  padding-left: 18px;
 
-  ${Contact.IconLink} + ${Contact.IconLink} {
-    margin-left: 1.5rem;
+  ::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 0;
+    width: 5px;
+    background: ${lighten(0.3, CAMOUFLAGE_GREEN)};
   }
 `
