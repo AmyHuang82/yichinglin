@@ -10,6 +10,7 @@ import {
   MOBILE_MENU_HEIGHT,
   WRAPPER_SIDES_PADDING,
 } from 'constants/size'
+import Facebook from '../icons/Facebook'
 import Instagram from '../icons/Instagram'
 import OrigPinkoi from '../icons/Pinkoi'
 
@@ -105,6 +106,10 @@ const iconStyle = css`
 `
 
 export const IG = styled(Instagram).attrs({ color: NOBEL_GRAY })`
+  ${iconStyle}
+`
+
+export const FB = styled(Facebook).attrs({ color: NOBEL_GRAY })`
   ${iconStyle}
 `
 

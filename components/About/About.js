@@ -1,5 +1,12 @@
-import { INSTAGRAM_LINK, PINKOI_LINK, MAIL, MAIL_LINK } from 'constants/links'
+import {
+  INSTAGRAM_LINK,
+  FACEBOOK_LINK,
+  PINKOI_LINK,
+  MAIL,
+  MAIL_LINK,
+} from 'constants/links'
 import IG from '../icons/Instagram'
+import FB from '../icons/Facebook'
 import Pinkoi from '../icons/Pinkoi'
 import {
   Avatar,
@@ -44,6 +51,14 @@ function About() {
             <Contact.Email href={MAIL_LINK}>{MAIL}</Contact.Email>
           </div>
           <Contact.Links>
+            <Contact.IconLink
+              target="_blank"
+              rel="noreferrer"
+              href={FACEBOOK_LINK}
+            >
+              <FB />
+              Yiching Lin Illustration
+            </Contact.IconLink>
             <Contact.IconLink
               target="_blank"
               rel="noreferrer"

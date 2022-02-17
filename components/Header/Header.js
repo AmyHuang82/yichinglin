@@ -3,6 +3,7 @@ import {
   BASE_URL,
   PROJECT_URL,
   ABOUT_URL,
+  FACEBOOK_LINK,
   INSTAGRAM_LINK,
   PINKOI_LINK,
 } from 'constants/links'
@@ -16,6 +17,7 @@ import {
   MenuLink,
   Icons,
   IconLink,
+  FB,
   IG,
   Pinkoi,
 } from './Header.style'
@@ -43,6 +45,9 @@ function Header({ isIllustration, isProject, isAbout }) {
               <MenuLink isCurrentPage={isAbout}>{ABOUT_PAGE}</MenuLink>
             </Link>
             <Icons>
+              <IconLink target="_blank" rel="noreferrer" href={FACEBOOK_LINK}>
+                <FB />
+              </IconLink>
               <IconLink target="_blank" rel="noreferrer" href={INSTAGRAM_LINK}>
                 <IG />
               </IconLink>
