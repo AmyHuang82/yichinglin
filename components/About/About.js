@@ -46,7 +46,7 @@ function About() {
           </div>
           <div>
             Hello, I am Yiching, an illustrator and a birdwatcher from Taiwan. I
-            majored in marketing in college, and worked in this field for few
+            majored in marketing in college, and worked in this field for a few
             years. Drawing is the one thing I have enjoyed ever since I was a
             child. At the age of 28, I made a career change to pursue my strong
             passion for art.
