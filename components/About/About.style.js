@@ -58,6 +58,10 @@ export const Description = styled.div`
   div + div {
     margin-top: 10px;
   }
+
+  div:nth-child(3) {
+    margin-top: 35px;
+  }
 `
 
 export const Contact = styled.div`
