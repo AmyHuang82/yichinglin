@@ -18,12 +18,14 @@ export const Date = styled.div`
   color: ${NOBEL_GRAY};
 `
 
+export const Description = Date
+
 export const Title = styled.h1`
   text-align: center;
   font-size: ${1.25}rem;
   font-weight: 700;
   margin-top: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   color: ${DARK_BLACK};
 
   ${media.pad} {

@@ -2,16 +2,20 @@ import {
   Container,
   Date,
   Title,
+  Description,
   Figure,
   Info,
   HTMLContainer,
 } from './Content.style'
 
-function Content({ project: { date, title, contentCover, client, html } }) {
+function Content({
+  project: { date, title, description, contentCover, client, html },
+}) {
   return (
     <Container>
       <Date>{date}</Date>
       <Title>{title}</Title>
+      <Description>{description}</Description>
       <Figure>
         <img alt={contentCover.label} src={contentCover.url} />
         <figcaption>{contentCover.label} </figcaption>

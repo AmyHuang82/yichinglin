@@ -9,18 +9,22 @@ import IG from '../icons/Instagram'
 import FB from '../icons/Facebook'
 import Pinkoi from '../icons/Pinkoi'
 import {
+  AvatarWrapper,
   Avatar,
   Wrapper,
   InfoWrapper,
   Intro,
   Description,
   Contact,
+  Footer,
 } from './About.style'
 
 function About() {
   return (
     <Wrapper>
-      <Avatar />
+      <AvatarWrapper>
+        <Avatar src="/avatar.jpg" />
+      </AvatarWrapper>
       <InfoWrapper>
         <Intro>
           從小喜歡繪本、喜歡畫畫，
@@ -39,6 +43,20 @@ function About() {
           </div>
           <div>
             喜歡畫各種溫暖美好的人事物，尤其享受描繪野鳥、野生動物、生態相關的題材。希望世界上每個生命都有屬於自己的一方天地，和諧存續。
+          </div>
+          <div>
+            Hello, I am Yiching, an illustrator and a birdwatcher from Taiwan. I
+            majored in marketing in college, and worked in this field for a few
+            years. Drawing is the one thing I have enjoyed ever since I was a
+            child. At the age of 28, I made a career change to pursue my strong
+            passion for art.
+          </div>
+          <div>
+            Birds, wildlife and nature are the main subjects of my artwork. I
+            love to create work that makes people feel pleasant, comfortable and
+            peaceful. You will always find me drawing a bird or an animal in a
+            healthy, safe and beautiful habitat. It’s like a wish of mine—hoping
+            we can save places where diverse wildlife thrives.
           </div>
         </Description>
 
@@ -78,6 +96,7 @@ function About() {
           </Contact.Links>
         </Contact>
       </InfoWrapper>
+      <Footer>&copy; Yiching Lin, All Rights Reserved.</Footer>
     </Wrapper>
   )
 }

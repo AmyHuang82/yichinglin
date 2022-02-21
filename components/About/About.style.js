@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { lighten } from 'polished'
 import { media } from 'utils/styleUtils'
 import { WHITE, BLACK, NOBEL_GRAY, CAMOUFLAGE_GREEN } from 'constants/colors'
+import { HEADER_HEIGHT } from 'constants/size'
+import { StyledFooter } from '../Footer/Footer.style'
 
 const MOBILE_SIDE_SPACE = 15
 const DESKTOP_SIDE_SPACE = 38
@@ -11,7 +13,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding-bottom: 100px;
+  justify-content: space-between;
   margin-top: -${MOBILE_SIDE_SPACE}px;
 
   ${media.pad} {
@@ -19,21 +21,18 @@ export const Wrapper = styled.div`
   }
 `
 
-export const Avatar = styled.div`
+export const AvatarWrapper = styled.div`
   width: 100%;
-  padding-bottom: 100%;
   margin: ${MOBILE_SIDE_SPACE}px;
   background-color: ${WHITE};
-  background-image: url('/avatar.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 
   ${media.pad} {
     width: ${AVATAR_DESKTOP_WIDTH}%;
-    padding-bottom: ${AVATAR_DESKTOP_WIDTH}%;
-    margin: ${DESKTOP_SIDE_SPACE}px;
   }
+`
+
+export const Avatar = styled.img`
+  width: 100%;
 `
 
 export const InfoWrapper = styled.div`
@@ -44,7 +43,9 @@ export const InfoWrapper = styled.div`
 
   ${media.pad} {
     width: calc(${100 - AVATAR_DESKTOP_WIDTH}% - ${2 * DESKTOP_SIDE_SPACE}px);
-    padding: ${DESKTOP_SIDE_SPACE}px;
+    height: calc(100vh - ${HEADER_HEIGHT}px - 100px);
+    overflow: auto;
+    padding: 0 ${DESKTOP_SIDE_SPACE}px ${DESKTOP_SIDE_SPACE}px;
   }
 `
 
@@ -57,6 +58,10 @@ export const Intro = styled.div`
 export const Description = styled.div`
   div + div {
     margin-top: 10px;
+  }
+
+  div:nth-child(3) {
+    margin-top: 35px;
   }
 `
 
@@ -118,5 +123,13 @@ Contact.Links = styled.div`
     left: 0;
     width: 5px;
     background: ${lighten(0.3, CAMOUFLAGE_GREEN)};
+  }
+`
+
+export const Footer = styled(StyledFooter)`
+  padding-top: 70px;
+
+  ${media.pad} {
+    padding-top: 25px;
   }
 `
