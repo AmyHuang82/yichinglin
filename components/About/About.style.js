@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { lighten } from 'polished'
 import { media } from 'utils/styleUtils'
 import { WHITE, BLACK, NOBEL_GRAY, CAMOUFLAGE_GREEN } from 'constants/colors'
+import { HEADER_HEIGHT } from 'constants/size'
 import { StyledFooter } from '../Footer/Footer.style'
 
 const MOBILE_SIDE_SPACE = 15
@@ -42,7 +43,7 @@ export const InfoWrapper = styled.div`
 
   ${media.pad} {
     width: calc(${100 - AVATAR_DESKTOP_WIDTH}% - ${2 * DESKTOP_SIDE_SPACE}px);
-    height: 55vh;
+    height: calc(100vh - ${HEADER_HEIGHT}px - 100px);
     overflow: auto;
     padding: 0 ${DESKTOP_SIDE_SPACE}px ${DESKTOP_SIDE_SPACE}px;
   }
@@ -129,6 +130,6 @@ export const Footer = styled(StyledFooter)`
   padding-top: 70px;
 
   ${media.pad} {
-    padding-top: 20px;
+    padding-top: 25px;
   }
 `
