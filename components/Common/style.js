@@ -23,5 +23,6 @@ export const Container = styled.div`
   ${media.pad} {
     min-height: calc(100vh - ${HEADER_HEIGHT}px);
     margin-bottom: 0;
+    padding-bottom: 20px;
   }
 `

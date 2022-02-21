@@ -9,18 +9,22 @@ import IG from '../icons/Instagram'
 import FB from '../icons/Facebook'
 import Pinkoi from '../icons/Pinkoi'
 import {
+  AvatarWrapper,
   Avatar,
   Wrapper,
   InfoWrapper,
   Intro,
   Description,
   Contact,
+  Footer,
 } from './About.style'
 
 function About() {
   return (
     <Wrapper>
-      <Avatar />
+      <AvatarWrapper>
+        <Avatar src="/avatar.jpg" />
+      </AvatarWrapper>
       <InfoWrapper>
         <Intro>
           從小喜歡繪本、喜歡畫畫，
@@ -78,6 +82,7 @@ function About() {
           </Contact.Links>
         </Contact>
       </InfoWrapper>
+      <Footer>&copy; Yiching Lin, All Rights Reserved.</Footer>
     </Wrapper>
   )
 }
