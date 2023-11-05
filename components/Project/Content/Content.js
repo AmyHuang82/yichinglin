@@ -29,7 +29,7 @@ function Content({
           </Info.Wrapper>
           <Info.Wrapper>
             <Info.Title>ILLUSTRATION</Info.Title>
-            Yiching Lin
+            林以晴 Yiching Lin
           </Info.Wrapper>
         </Info.Content>
       </Info>
