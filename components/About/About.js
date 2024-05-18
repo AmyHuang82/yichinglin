@@ -38,18 +38,14 @@ function About() {
 
         <Description>
           <div>
-            你好，我是以晴。大學念傳播行銷，畢業後做了幾年行銷工作，卻從來沒有忘記對畫畫的熱情，28
-            歲正式開始以創作為生。
+            你好，我是以晴。大學念傳播行銷，畢業後做了幾年行銷工作，28
+            歲時結合藝術與生態，正式開始以創作為生。喜歡細細觀察、研究與描繪野生動物，懷著分享知識與推廣保育的熱情。希望世界上每個生命都有屬於自己的一方天地，和諧存續。
           </div>
           <div>
-            喜歡畫各種溫暖美好的人事物，尤其享受描繪野鳥、野生動物、生態相關的題材。希望世界上每個生命都有屬於自己的一方天地，和諧存續。
-          </div>
-          <div>
-            Hello! I am Yiching, a Taiwanese illustrator and birder. I enjoy
-            walking in nature, looking closely and listening carefully for
-            birds, and marveling at the mystery of plants. My works, therefore,
-            are usually inspired by the beauty of nature, and aiming to promote
-            the value of biodiversity.
+            Hello! I am Yiching, a Taiwanese illustrator and birder. Greatly
+            influenced by my lifelong passion for birdwatching, my illustration
+            practice centers around nature and wildlife, with a particular
+            interest in conservation education.
           </div>
         </Description>
 
