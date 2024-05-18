@@ -24,7 +24,7 @@ function Admin() {
       .auth()
       .signOut()
       .then(() => setLoginUid(null))
-      .catch(error => console.login(error))
+      .catch(error => console.log(error))
   }
 
   useEffect(() => {
