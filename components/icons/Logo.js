@@ -1,12 +1,7 @@
-import styled from 'styled-components'
-
-const StyledLogo = styled.div`
-  font-family: 'Cookie', cursive;
-  font-size: 2.5rem;
-`
+import Image from 'next/image'
 
 function Logo() {
-  return <StyledLogo>Yiching Lin</StyledLogo>
+  return <Image src="/logo.png" alt="Logo" width={140} height={49.56} />
 }
 
 export default Logo
