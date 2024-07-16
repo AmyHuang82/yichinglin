@@ -12,8 +12,8 @@ import {
 } from './Modal.style'
 
 function Portal({ children }) {
-  const element = 'div'
-  const container = document.createElement(element)
+  const containerRef = useRef(document.createElement('div'))
+  const container = containerRef.current
 
   useEffect(() => {
     document.body.appendChild(container)
