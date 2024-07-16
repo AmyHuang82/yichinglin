@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, Table, Modal, message } from 'antd'
+import { Image, Button, Table, Modal, message } from 'antd'
 import { useQueryClient } from 'react-query'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
@@ -81,17 +81,19 @@ function Illustration() {
                 key: 'index',
                 render: (_, __, index) => index + 1,
               },
+              {
+                title: '圖片預覽',
+                key: 'preview',
+                render: ({ name, src }) => (
+                  <Image alt={name} src={src} height={50} />
+                ),
+              },
               { title: '名稱', dataIndex: 'name' },
               { title: '描述', dataIndex: 'description' },
               {
                 title: '尺寸（寬 x 高）',
                 key: 'size',
                 render: ({ width, height }) => `${width} x ${height}`,
-              },
-              {
-                title: '圖片連結',
-                dataIndex: 'src',
-                render: src => <NewTabLink href={src}>點擊查看</NewTabLink>,
               },
               {
                 title: '操作',
