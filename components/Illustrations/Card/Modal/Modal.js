@@ -12,10 +12,8 @@ import {
 } from './Modal.style'
 
 function Portal({ children }) {
-  const className = 'root-portal'
   const element = 'div'
   const container = document.createElement(element)
-  container.classList.add(className)
 
   useEffect(() => {
     document.body.appendChild(container)
