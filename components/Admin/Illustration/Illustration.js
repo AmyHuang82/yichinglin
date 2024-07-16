@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import { Image, Button, Table } from 'antd'
+import { Image, Button, Table, Space } from 'antd'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import DraggableBodyRow from 'components/Common/DraggableBodyRow'
 import { Container, Row } from '../Admin.style'
 import UploadModal from './UploadModal'
+import Edit from './Edit'
 import Delete from './Delete'
 import useRows from './useRows'
 
@@ -59,7 +60,12 @@ function Illustration() {
               {
                 title: '操作',
                 key: 'action',
-                render: illustration => <Delete {...illustration} />,
+                render: illustration => (
+                  <Space>
+                    <Edit {...illustration} />
+                    <Delete {...illustration} />
+                  </Space>
+                ),
               },
             ]}
           />
