@@ -7,7 +7,7 @@ import {
   Container,
   Content,
   Image,
-  CopyRight,
+  Description,
   Close,
 } from './Modal.style'
 
@@ -35,7 +35,7 @@ function Portal({ children }) {
   )
 }
 
-function Modal({ data: { name, src }, closeModal }) {
+function Modal({ data: { name, src, description }, closeModal }) {
   const maskRef = useRef()
 
   useEffect(() => {
@@ -61,7 +61,7 @@ function Modal({ data: { name, src }, closeModal }) {
         <Close onClick={closeModal} />
         <Content>
           <Image src={src} alt={name} />
-          <CopyRight>copyright &copy; Yiching Lin</CopyRight>
+          <Description>{description}</Description>
         </Content>
       </Container>
     </Portal>
