@@ -59,6 +59,7 @@ export const Image = styled.img`
 `
 
 export const Description = styled.div`
+  width: ${({ imageWidth }) => (imageWidth ? `${imageWidth}px` : '100%')};
   color: ${NOBEL_GRAY};
   font-size: 0.875rem;
 `

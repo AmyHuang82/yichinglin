@@ -44,17 +44,21 @@ function Modal({ data: { name, src, description }, closeModal }) {
   const imageRef = useRef()
   const [imageWidth, setImageWidth] = useState(0)
 
+  function calculateImageWidth() {
+    setImageWidth(imageRef.current.getBoundingClientRect().width)
+  }
+
   useEffect(() => {
-    setImageWidth(imageRef.current.clientWidth)
+    calculateImageWidth()
   }, [])
 
   return (
     <Portal>
       <Container ref={maskRef} onClick={onMaskClick}>
         <Close onClick={closeModal} />
-        <Content>
+        <Content onAnimationEnd={calculateImageWidth}>
           <Image src={src} alt={name} ref={imageRef} />
-          <Description style={{ width: imageWidth }}>{description}</Description>
+          <Description imageWidth={imageWidth}>{description}</Description>
         </Content>
       </Container>
     </Portal>
