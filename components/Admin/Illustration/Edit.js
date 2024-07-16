@@ -63,7 +63,7 @@ function EditForm({ id, name, description, src, onClose }) {
     >
       <Form.Item label="檔案名稱">{name}</Form.Item>
       <Form.Item label="描述" rules={[{ required: true }]} name="description">
-        <Input.TextArea />
+        <Input />
       </Form.Item>
       <Form.Item label="圖片預覽">
         <Image src={src} />

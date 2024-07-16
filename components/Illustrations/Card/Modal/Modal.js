@@ -1,6 +1,5 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { EventEmitter } from 'fbemitter'
 import {
   noScroll,
   GlobalStyle,
@@ -12,10 +11,8 @@ import {
 } from './Modal.style'
 
 function Portal({ children }) {
-  const className = 'root-portal'
-  const element = 'div'
-  const container = document.createElement(element)
-  container.classList.add(className)
+  const containerRef = useRef(document.createElement('div'))
+  const container = containerRef.current
 
   useEffect(() => {
     document.body.appendChild(container)
@@ -38,30 +35,30 @@ function Portal({ children }) {
 function Modal({ data: { name, src, description }, closeModal }) {
   const maskRef = useRef()
 
-  useEffect(() => {
-    const emitter = new EventEmitter()
-
-    emitter.addListener('closeModal', e => {
-      if (e.target === maskRef.current) {
-        closeModal()
-      }
-    })
-    maskRef.current.addEventListener('click', e => {
-      emitter.emit('closeModal', e)
-    })
-
-    return () => {
-      emitter.removeAllListeners()
+  function onMaskClick(e) {
+    if (e.target === maskRef.current) {
+      closeModal()
     }
+  }
+
+  const imageRef = useRef()
+  const [imageWidth, setImageWidth] = useState(0)
+
+  function calculateImageWidth() {
+    setImageWidth(imageRef.current.getBoundingClientRect().width)
+  }
+
+  useEffect(() => {
+    calculateImageWidth()
   }, [])
 
   return (
     <Portal>
-      <Container ref={maskRef}>
+      <Container ref={maskRef} onClick={onMaskClick}>
         <Close onClick={closeModal} />
-        <Content>
-          <Image src={src} alt={name} />
-          <Description>{description}</Description>
+        <Content onAnimationEnd={calculateImageWidth}>
+          <Image src={src} alt={name} ref={imageRef} />
+          <Description imageWidth={imageWidth}>{description}</Description>
         </Content>
       </Container>
     </Portal>
