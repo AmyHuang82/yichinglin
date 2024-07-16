@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Modal, Upload, Button, message } from 'antd'
+import { Modal, Upload, Button, message, Form, Input } from 'antd'
 import { InboxOutlined } from '@ant-design/icons'
 import { useQueryClient } from 'react-query'
 import useIllustration from 'components/api/useIllustration'
@@ -37,6 +37,7 @@ function UploadModal({ closeModal }) {
             name: imageFile.name,
             width: image.width,
             height: image.height,
+            description: 'copyright © Yiching Lin',
           },
         ])
       }
@@ -62,7 +63,6 @@ function UploadModal({ closeModal }) {
       return {
         ...image,
         order: data[0] ? data[0].order + currentOrder : currentOrder,
-        description: 'copyright © Yiching Lin',
       }
     })
     submit(submitData, {
@@ -92,7 +92,10 @@ function UploadModal({ closeModal }) {
           {!isLoading && <Button onClick={closeModal}>取消</Button>}
           <Button
             type="primary"
-            disabled={images.length === 0}
+            disabled={
+              images.length === 0 ||
+              images.filter(image => image.description === '').length > 0
+            }
             loading={isLoading}
             onClick={onSubmit}
           >
@@ -106,6 +109,31 @@ function UploadModal({ closeModal }) {
         accept=".jpg, .jpeg, .png, .gif"
         listType="picture"
         fileList={images.map(({ imageFile }) => imageFile)}
+        itemRender={(originNode, file, fileList) => {
+          const index = fileList.indexOf(file)
+          const itemDescription = images[index].description
+          const isItemDescriptionEmpty = itemDescription === ''
+          return (
+            <div>
+              {originNode}
+              <Form.Item
+                validateStatus={isItemDescriptionEmpty ? 'error' : ''}
+                help={isItemDescriptionEmpty ? '此欄位為必填' : ''}
+                style={{ marginBottom: 0 }}
+              >
+                <Input
+                  placeholder="請輸入描述"
+                  value={itemDescription}
+                  onChange={e => {
+                    const newImages = [...images]
+                    newImages[index].description = e.target.value
+                    setImages(newImages)
+                  }}
+                />
+              </Form.Item>
+            </div>
+          )
+        }}
         beforeUpload={beforeUpload}
         customRequest={onUpload}
         onRemove={onRemove}
