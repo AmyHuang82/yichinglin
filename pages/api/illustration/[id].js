@@ -1,5 +1,5 @@
 import admin from 'firebase/backend'
-import { ORDER } from 'constants/updateFields'
+import { ORDER, DESCRIPTION } from 'constants/updateFields'
 
 const db = admin.firestore()
 const bucket = admin.storage().bucket()
@@ -27,6 +27,21 @@ async function handler(req, res) {
           .catch(error => {
             res.status(400).json(error)
           })
+      }
+
+      if (updateField === DESCRIPTION) {
+        const { id } = req.query
+        const { description } = req.body
+
+        await db
+          .collection('illustration')
+          .doc(id)
+          .update({ description })
+          .catch(error => {
+            res.status(400).json(error)
+          })
+
+        res.json({ description })
       }
 
       res.status(200).end()
