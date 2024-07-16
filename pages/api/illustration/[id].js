@@ -1,4 +1,5 @@
 import admin from 'firebase/backend'
+import { ORDER } from 'constants/updateFields'
 
 const db = admin.firestore()
 const bucket = admin.storage().bucket()
@@ -6,23 +7,27 @@ const bucket = admin.storage().bucket()
 async function handler(req, res) {
   try {
     if (req.method === 'PATCH') {
-      const { draggedItem, exchangeTarget } = req.body
+      const { updateField } = req.body
 
-      await db
-        .collection('illustration')
-        .doc(draggedItem.id)
-        .update({ order: draggedItem.newOrder })
-        .catch(error => {
-          res.status(400).json(error)
-        })
+      if (updateField === ORDER) {
+        const { draggedItem, exchangeTarget } = req.body
 
-      await db
-        .collection('illustration')
-        .doc(exchangeTarget.id)
-        .update({ order: exchangeTarget.newOrder })
-        .catch(error => {
-          res.status(400).json(error)
-        })
+        await db
+          .collection('illustration')
+          .doc(draggedItem.id)
+          .update({ order: draggedItem.newOrder })
+          .catch(error => {
+            res.status(400).json(error)
+          })
+
+        await db
+          .collection('illustration')
+          .doc(exchangeTarget.id)
+          .update({ order: exchangeTarget.newOrder })
+          .catch(error => {
+            res.status(400).json(error)
+          })
+      }
 
       res.status(200).end()
     }
