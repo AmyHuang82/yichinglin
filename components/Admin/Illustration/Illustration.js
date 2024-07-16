@@ -82,6 +82,7 @@ function Illustration() {
                 render: (_, __, index) => index + 1,
               },
               { title: '名稱', dataIndex: 'name' },
+              { title: '描述', dataIndex: 'description' },
               {
                 title: '尺寸（寬 x 高）',
                 key: 'size',
