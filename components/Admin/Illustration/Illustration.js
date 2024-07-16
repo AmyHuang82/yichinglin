@@ -88,7 +88,7 @@ function Illustration() {
                   <Image alt={name} src={src} height={50} />
                 ),
               },
-              { title: '名稱', dataIndex: 'name' },
+              { title: '檔案名稱', dataIndex: 'name' },
               { title: '描述', dataIndex: 'description' },
               {
                 title: '尺寸（寬 x 高）',
