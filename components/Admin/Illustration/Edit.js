@@ -52,6 +52,7 @@ function EditForm({ id, name, description, src, onClose }) {
 
   return (
     <Form
+      disabled={isLoading}
       layout="vertical"
       form={form}
       initialValues={{ description }}
