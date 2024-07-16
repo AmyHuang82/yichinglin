@@ -5,6 +5,8 @@ import {
   GlobalStyle,
   Container,
   Content,
+  ImageWrapper,
+  ImageLoading,
   Image,
   Description,
   Close,
@@ -43,10 +45,10 @@ function Modal({ data: { name, src, description }, closeModal }) {
 
   const imageRef = useRef()
   const [imageWidth, setImageWidth] = useState(0)
+  const isImageLoading = !imageWidth
 
   useEffect(() => {
     function calculateImageWidth() {
-      if (!imageRef.current) return
       setImageWidth(imageRef.current.getBoundingClientRect().width)
     }
 
@@ -58,7 +60,15 @@ function Modal({ data: { name, src, description }, closeModal }) {
       <Container ref={maskRef} onClick={onMaskClick}>
         <Close onClick={closeModal} />
         <Content>
-          <Image src={src} alt={name} ref={imageRef} />
+          <ImageWrapper>
+            {isImageLoading && <ImageLoading />}
+            <Image
+              src={src}
+              alt={name}
+              ref={imageRef}
+              style={{ opacity: isImageLoading ? 0 : 1 }}
+            />
+          </ImageWrapper>
           <Description imageWidth={imageWidth}>{description}</Description>
         </Content>
       </Container>
