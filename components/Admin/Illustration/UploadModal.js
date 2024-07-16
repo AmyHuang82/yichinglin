@@ -105,6 +105,7 @@ function UploadModal({ closeModal }) {
       }
     >
       <Dragger
+        disabled={isLoading}
         multiple
         accept=".jpg, .jpeg, .png, .gif"
         listType="picture"
@@ -122,6 +123,7 @@ function UploadModal({ closeModal }) {
                 style={{ marginBottom: 0 }}
               >
                 <Input
+                  disabled={isLoading}
                   placeholder="請輸入描述"
                   value={itemDescription}
                   onChange={e => {
