@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { Button } from 'antd'
-import Trash from 'components/icons/Trash'
 
 export const Container = styled.div`
   padding: 30px;
@@ -21,16 +20,4 @@ export const LogoutButton = styled(Button)`
   position: absolute;
   top: 6px;
   right: 20px;
-`
-
-export const DeleteIcon = styled(Trash)`
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-
-  :hover {
-    path {
-      fill: red;
-    }
-  }
 `

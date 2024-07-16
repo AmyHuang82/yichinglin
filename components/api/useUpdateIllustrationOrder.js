@@ -1,9 +1,11 @@
 import axios from 'axios'
 import { useMutation } from 'react-query'
+import { ORDER } from 'constants/updateFields'
 
 function updateIllustrationOrderAPI({ draggedItem, exchangeTarget }) {
   return axios
     .patch(`/api/illustration/${draggedItem.id}`, {
+      updateField: ORDER,
       draggedItem,
       exchangeTarget,
     })

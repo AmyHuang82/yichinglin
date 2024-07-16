@@ -62,6 +62,7 @@ function UploadModal({ closeModal }) {
       return {
         ...image,
         order: data[0] ? data[0].order + currentOrder : currentOrder,
+        description: 'copyright © Yiching Lin',
       }
     })
     submit(submitData, {

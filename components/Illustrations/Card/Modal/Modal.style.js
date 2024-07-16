@@ -58,7 +58,7 @@ export const Image = styled.img`
   }
 `
 
-export const CopyRight = styled.div`
+export const Description = styled.div`
   position: absolute;
   left: 20px;
   bottom: 15px;

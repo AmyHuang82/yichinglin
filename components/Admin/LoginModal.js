@@ -8,7 +8,7 @@ function LoginModal({ setLoginUid }) {
       .auth()
       .signInWithPopup(provider)
       .then(result => setLoginUid(result.user.uid))
-      .catch(error => console.login(error))
+      .catch(error => window.alert(error))
   }
 
   return (
