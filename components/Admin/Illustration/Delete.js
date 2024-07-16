@@ -1,22 +1,8 @@
 import { useQueryClient } from 'react-query'
-import styled from 'styled-components'
-import { Modal, message } from 'antd'
-import Trash from 'components/icons/Trash'
+import { Modal, message, Button } from 'antd'
 import NewTabLink from 'components/Common/NewTabLink'
 import useIllustration from 'components/api/useIllustration'
 import useDeleteIllustration from 'components/api/useDeleteIllustration'
-
-const DeleteIcon = styled(Trash)`
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-
-  :hover {
-    path {
-      fill: red;
-    }
-  }
-`
 
 function Delete({ id, name, src }) {
   const queryClient = useQueryClient()
@@ -54,7 +40,11 @@ function Delete({ id, name, src }) {
     }
   }
 
-  return <DeleteIcon onClick={confirm({ id, name, src })} />
+  return (
+    <Button danger onClick={confirm({ id, name, src })}>
+      刪除
+    </Button>
+  )
 }
 
 export default Delete
