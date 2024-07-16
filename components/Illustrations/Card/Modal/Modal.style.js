@@ -3,6 +3,7 @@ import { transparentize } from 'polished'
 import { media } from 'utils/styleUtils'
 import { WHITE, NOBEL_GRAY } from 'constants/colors'
 import Cross from 'components/icons/Cross'
+import { Loading } from 'components/Illustrations/Illustration.style'
 
 export const noScroll = 'no-scroll'
 
@@ -47,6 +48,19 @@ export const Content = styled.div`
   ${media.pad} {
     max-width: 90%;
   }
+`
+
+export const ImageWrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  min-height: 100px;
+`
+
+export const ImageLoading = styled(Loading)`
+  position: absolute;
 `
 
 export const Image = styled.img`
