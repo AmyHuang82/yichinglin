@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import {
   noScroll,
@@ -41,13 +41,20 @@ function Modal({ data: { name, src, description }, closeModal }) {
     }
   }
 
+  const imageRef = useRef()
+  const [imageWidth, setImageWidth] = useState(0)
+
+  useEffect(() => {
+    setImageWidth(imageRef.current.clientWidth)
+  }, [])
+
   return (
     <Portal>
       <Container ref={maskRef} onClick={onMaskClick}>
         <Close onClick={closeModal} />
         <Content>
-          <Image src={src} alt={name} />
-          <Description>{description}</Description>
+          <Image src={src} alt={name} ref={imageRef} />
+          <Description style={{ width: imageWidth }}>{description}</Description>
         </Content>
       </Container>
     </Portal>

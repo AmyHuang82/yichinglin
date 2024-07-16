@@ -37,7 +37,7 @@ export const Content = styled.div`
   animation: ${fadeIn} 0.5s linear forwards;
   position: relative;
   margin: auto;
-  padding: 40px 20px;
+  padding: 40px 20px 20px;
   background-color: ${WHITE};
   box-shadow: 0 16px 22px 0 ${transparentize(0.5, NOBEL_GRAY)};
   max-width: 100%;
@@ -59,9 +59,6 @@ export const Image = styled.img`
 `
 
 export const Description = styled.div`
-  position: absolute;
-  left: 20px;
-  bottom: 15px;
   color: ${NOBEL_GRAY};
   font-size: 0.875rem;
 `
