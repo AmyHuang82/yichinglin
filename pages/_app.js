@@ -2,6 +2,9 @@ import { createGlobalStyle } from 'styled-components'
 import { normalize } from 'polished'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
+import { useRouter } from 'next/router'
 
 const queryClient = new QueryClient()
 
@@ -37,11 +40,15 @@ const GlobalStyle = createGlobalStyle`
 `
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter()
+
   return (
     <QueryClientProvider client={queryClient}>
       <GlobalStyle />
       <Component {...pageProps} />
       <ReactQueryDevtools />
+      <Analytics />
+      <SpeedInsights route={router.pathname} />
     </QueryClientProvider>
   )
 }
