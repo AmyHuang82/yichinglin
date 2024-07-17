@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 import { normalize } from 'polished'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
+import { Analytics } from '@vercel/analytics/react'
 
 const queryClient = new QueryClient()
 
@@ -42,6 +43,7 @@ function MyApp({ Component, pageProps }) {
       <GlobalStyle />
       <Component {...pageProps} />
       <ReactQueryDevtools />
+      <Analytics />
     </QueryClientProvider>
   )
 }
