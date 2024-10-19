@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-imports */
 import axios from 'axios'
 
 const IS_DEV = process.env.NODE_ENV === 'development'

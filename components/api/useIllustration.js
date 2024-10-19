@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'utils/axiosUtils'
 import { useQuery } from 'react-query'
 
 function fetchIllustrationAPI() {

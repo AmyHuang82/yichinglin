@@ -69,6 +69,11 @@ rules:
   # ECMAScript 6
   arrow-parens: off
   prefer-destructuring: off
+  no-restricted-imports:
+    [
+      error,
+      { name: axios, message: Please use utils/axiosUtils instead. },
+    ]
 
   # Plugins
   # react-hooks
