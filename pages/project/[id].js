@@ -4,18 +4,19 @@ import Footer from 'components/Footer/Footer'
 import Content from 'components/Project/Content/Content'
 import { Container } from 'components/Common/style'
 import { SITE_URL, BASE_TITLE, PROJECT_PAGE } from 'constants/headInfo'
-import { getProjects, getProject } from 'lib/getProjectData'
+import axios from 'utils/axiosUtils'
 
-export function getStaticPaths() {
-  const paths = getProjects().map(({ id }) => ({
+export async function getStaticPaths() {
+  const { data } = await axios.get('/api/projects')
+  const paths = data.map(({ id }) => ({
     params: { id },
   }))
-  return { paths, fallback: false }
+  return { paths, fallback: 'blocking' }
 }
 
-export function getStaticProps({ params }) {
-  const project = getProject(params.id)
-  return { props: { project } }
+export async function getStaticProps({ params }) {
+  const { data } = await axios.get(`/api/projects/${params.id}`)
+  return { props: { project: data } }
 }
 
 function Project({ project }) {

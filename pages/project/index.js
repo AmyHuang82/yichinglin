@@ -10,8 +10,14 @@ import {
   PROJECT_PAGE,
   DESCRIPTIONS,
 } from 'constants/headInfo'
+import axios from 'utils/axiosUtils'
 
-function ProjectPage() {
+export async function getStaticProps() {
+  const { data } = await axios.get('/api/projects')
+  return { props: { projects: data } }
+}
+
+function ProjectPage({ projects }) {
   return (
     <>
       <Head>
@@ -25,7 +31,7 @@ function ProjectPage() {
       </Head>
       <Header isProject />
       <Container>
-        <Project />
+        <Project projects={projects} />
         <Footer />
       </Container>
     </>
