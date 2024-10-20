@@ -4,7 +4,7 @@ import { Button, Drawer, Modal } from 'antd'
 import useProjects from 'components/api/project/useProjects'
 import useProject from 'components/api/project/useProject'
 import useUpdateProject from 'components/api/project/useUpdateProject'
-import ProjectForm from './ProjectForm'
+import ProjectForm from './Form/ProjectForm'
 
 function getUpdateValues(initialValues, values) {
   return Object.entries(values).reduce((acc, [key, value]) => {

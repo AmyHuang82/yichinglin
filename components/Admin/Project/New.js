@@ -3,7 +3,7 @@ import { useQueryClient } from 'react-query'
 import { Button, Drawer, Modal } from 'antd'
 import useProjects from 'components/api/project/useProjects'
 import useCreateProject from 'components/api/project/useCreateProject'
-import ProjectForm from './ProjectForm'
+import ProjectForm from './Form/ProjectForm'
 
 function New() {
   const [isOpen, setIsOpen] = useState(false)

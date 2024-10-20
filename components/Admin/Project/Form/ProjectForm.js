@@ -1,5 +1,6 @@
 import { Button, Form, Image, Input } from 'antd'
-import { FormFooter } from '../Admin.style'
+import HtmlEditor from './HtmlEditor'
+import { FormFooter } from '../../Admin.style'
 
 function ProjectForm({ initialValues, onClose, onSubmit, isLoading }) {
   return (
@@ -65,7 +66,7 @@ function ProjectForm({ initialValues, onClose, onSubmit, isLoading }) {
         <Input />
       </Form.Item>
       <Form.Item label="專案內容" rules={[{ required: true }]} name="html">
-        <Input.TextArea />
+        <HtmlEditor disabled={isLoading} />
       </Form.Item>
       <FormFooter>
         <Button onClick={onClose}>取消</Button>
