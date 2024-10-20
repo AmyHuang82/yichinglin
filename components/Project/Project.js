@@ -1,7 +1,12 @@
+import useProjects from 'components/api/project/useProjects'
+import Loading from 'components/Common/Loading'
 import { Container } from './Project.style'
 import Card from './Card/Card'
 
-function Project({ projects }) {
+function Project() {
+  const { isSuccess, data: projects } = useProjects()
+
+  if (!isSuccess) return <Loading />
   return (
     <Container>
       {projects
