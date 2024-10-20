@@ -39,6 +39,7 @@ function Project() {
                 key: 'index',
                 render: (_, __, index) => index + 1,
               },
+              { title: '專案名稱', dataIndex: 'title' },
               {
                 title: '封面預覽',
                 key: 'preview',
