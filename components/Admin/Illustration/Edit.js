@@ -1,22 +1,9 @@
 import { useState } from 'react'
 import { useQueryClient } from 'react-query'
-import styled from 'styled-components'
 import { Button, Drawer, Form, Image, Input, message } from 'antd'
 import useIllustration from 'components/api/illustration/useIllustration'
 import useUpdateIllustration from 'components/api/illustration/useUpdateIllustration'
-
-const Footer = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 8px 16px;
-  background: white;
-  border-top: 0.5px silver solid;
-  display: flex;
-  justify-content: flex-end;
-  gap: 8px;
-`
+import { FormFooter } from '../Admin.style'
 
 function EditForm({ id, name, description, src, onClose }) {
   const [form] = Form.useForm()
@@ -68,12 +55,12 @@ function EditForm({ id, name, description, src, onClose }) {
       <Form.Item label="圖片預覽">
         <Image src={src} />
       </Form.Item>
-      <Footer>
+      <FormFooter>
         <Button onClick={onClose}>取消</Button>
         <Button type="primary" htmlType="submit" loading={isLoading}>
           儲存
         </Button>
-      </Footer>
+      </FormFooter>
     </Form>
   )
 }
