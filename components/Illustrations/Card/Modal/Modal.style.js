@@ -3,7 +3,7 @@ import { transparentize } from 'polished'
 import { media } from 'utils/styleUtils'
 import { WHITE, NOBEL_GRAY } from 'constants/colors'
 import Cross from 'components/icons/Cross'
-import { Loading } from 'components/Illustrations/Illustration.style'
+import Loading from 'components/Common/Loading'
 
 export const noScroll = 'no-scroll'
 
