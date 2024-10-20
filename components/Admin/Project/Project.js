@@ -1,9 +1,10 @@
-import { Image, Button, Table } from 'antd'
+import { Image, Table } from 'antd'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import DraggableBodyRow from 'components/Common/DraggableBodyRow'
 import { Container, Row } from '../Admin.style'
 import useRows from './useRows'
+import New from './New'
 
 function Project() {
   const [rows, moveRow, canDrag] = useRows()
@@ -13,7 +14,7 @@ function Project() {
       <Container>
         <Row>
           <h2>Project 列表</h2>
-          <Button type="primary">+ 新增專案</Button>
+          <New />
         </Row>
         <DndProvider backend={HTML5Backend}>
           <Table
