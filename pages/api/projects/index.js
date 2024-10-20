@@ -2,13 +2,6 @@ import admin from 'firebase/backend'
 
 const db = admin.firestore()
 
-export const config = {
-  api: {
-    bodyParser: false,
-    externalResolver: true,
-  },
-}
-
 async function handler(req, res) {
   try {
     if (req.method === 'GET') {
@@ -22,6 +15,11 @@ async function handler(req, res) {
         })
         res.status(200).json(data)
       }
+    }
+    if (req.method === 'POST') {
+      const data = req.body
+      await db.collection('projects').doc(data.id).set(data)
+      res.status(201).json('succeed')
     }
   } catch (error) {
     res.status(400).json(error)

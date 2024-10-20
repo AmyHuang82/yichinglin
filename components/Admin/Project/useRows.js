@@ -1,16 +1,16 @@
 import { useQueryClient } from 'react-query'
 import { message } from 'antd'
 import useDerivedState from 'hooks/useDerivedState'
-import useIllustration from 'components/api/illustration/useIllustration'
-import useUpdateIllustrationOrder from 'components/api/illustration/useUpdateIllustrationOrder'
+import useProjects from 'components/api/project/useProjects'
+import useUpdateProjectOrder from 'components/api/project/useUpdateProjectOrder'
 
 function useRows() {
   const queryClient = useQueryClient()
 
-  const { queryKey, data } = useIllustration()
+  const { queryKey, data } = useProjects()
   const [rows, setRows] = useDerivedState(data)
 
-  const { submit, isLoading } = useUpdateIllustrationOrder()
+  const { submit, isLoading } = useUpdateProjectOrder()
   const canDrag = !isLoading
 
   function moveRow(dragIndex, hoverIndex) {

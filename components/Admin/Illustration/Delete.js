@@ -1,8 +1,8 @@
 import { useQueryClient } from 'react-query'
 import { Modal, message, Button } from 'antd'
 import NewTabLink from 'components/Common/NewTabLink'
-import useIllustration from 'components/api/useIllustration'
-import useDeleteIllustration from 'components/api/useDeleteIllustration'
+import useIllustration from 'components/api/illustration/useIllustration'
+import useDeleteIllustration from 'components/api/illustration/useDeleteIllustration'
 
 function Delete({ id, name, src }) {
   const queryClient = useQueryClient()

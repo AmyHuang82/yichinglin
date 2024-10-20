@@ -3,6 +3,7 @@ import { Menu } from 'antd'
 import firebase from 'firebase/frontend'
 import LoginModal from './LoginModal'
 import Illustration from './Illustration/Illustration'
+import Project from './Project/Project'
 import { LogoutButton } from './Admin.style'
 
 const ILLUSTRATION_KEY = 'illustration'
@@ -48,7 +49,7 @@ function Admin() {
       </Menu>
       <LogoutButton onClick={logout}>登出</LogoutButton>
       {currentKey === ILLUSTRATION_KEY && <Illustration />}
-      {currentKey === PROJECT_KEY && <div>Project 管理</div>}
+      {currentKey === PROJECT_KEY && <Project />}
     </>
   )
 }
