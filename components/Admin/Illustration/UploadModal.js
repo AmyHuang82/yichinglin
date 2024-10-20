@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { Modal, Upload, Button, message, Form, Input } from 'antd'
 import { InboxOutlined } from '@ant-design/icons'
 import { useQueryClient } from 'react-query'
-import useIllustration from 'components/api/useIllustration'
-import useCreateIllustration from 'components/api/useCreateIllustration'
+import useIllustration from 'components/api/illustration/useIllustration'
+import useCreateIllustration from 'components/api/illustration/useCreateIllustration'
 
 const { Dragger } = Upload
 

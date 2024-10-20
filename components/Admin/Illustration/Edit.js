@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { useQueryClient } from 'react-query'
 import styled from 'styled-components'
 import { Button, Drawer, Form, Image, Input, message } from 'antd'
-import useIllustration from 'components/api/useIllustration'
-import useUpdateIllustration from 'components/api/useUpdateIllustration'
+import useIllustration from 'components/api/illustration/useIllustration'
+import useUpdateIllustration from 'components/api/illustration/useUpdateIllustration'
 
 const Footer = styled.div`
   position: absolute;

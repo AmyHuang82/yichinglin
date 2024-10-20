@@ -1,8 +1,8 @@
 import { useQueryClient } from 'react-query'
 import { message } from 'antd'
 import useDerivedState from 'hooks/useDerivedState'
-import useIllustration from 'components/api/useIllustration'
-import useUpdateIllustrationOrder from 'components/api/useUpdateIllustrationOrder'
+import useIllustration from 'components/api/illustration/useIllustration'
+import useUpdateIllustrationOrder from 'components/api/illustration/useUpdateIllustrationOrder'
 
 function useRows() {
   const queryClient = useQueryClient()

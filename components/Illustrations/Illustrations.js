@@ -1,4 +1,4 @@
-import useIllustration from 'components/api/useIllustration'
+import useIllustration from 'components/api/illustration/useIllustration'
 import { Masonry, Loading } from './Illustration.style'
 import Card from './Card/Card'
 
