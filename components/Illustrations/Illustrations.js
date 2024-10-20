@@ -1,5 +1,6 @@
 import useIllustration from 'components/api/illustration/useIllustration'
-import { Masonry, Loading } from './Illustration.style'
+import Loading from 'components/Common/Loading'
+import { Masonry } from './Illustration.style'
 import Card from './Card/Card'
 
 const MINIMUM_WIDTH = 300

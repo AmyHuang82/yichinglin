@@ -6,17 +6,16 @@ import { Container } from 'components/Common/style'
 import { SITE_URL, BASE_TITLE, PROJECT_PAGE } from 'constants/headInfo'
 import axios from 'utils/axiosUtils'
 
-export async function getStaticPaths() {
-  const { data } = await axios.get('/api/projects')
-  const paths = data.map(({ id }) => ({
-    params: { id },
-  }))
-  return { paths, fallback: 'blocking' }
-}
-
-export async function getStaticProps({ params }) {
-  const { data } = await axios.get(`/api/projects/${params.id}`)
-  return { props: { project: data, revalidate: 60 } }
+export async function getServerSideProps({ params }) {
+  try {
+    const { data } = await axios.get(`/api/projects/${params.id}`)
+    if (!data) {
+      return { notFound: true }
+    }
+    return { props: { project: data } }
+  } catch (error) {
+    return { notFound: true }
+  }
 }
 
 function Project({ project }) {

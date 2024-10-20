@@ -10,12 +10,6 @@ import {
   PROJECT_PAGE,
   DESCRIPTIONS,
 } from 'constants/headInfo'
-import axios from 'utils/axiosUtils'
-
-export async function getServerSideProps() {
-  const { data } = await axios.get('/api/projects')
-  return { props: { projects: data } }
-}
 
 function ProjectPage({ projects }) {
   return (
