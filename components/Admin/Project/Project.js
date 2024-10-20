@@ -44,6 +44,15 @@ function Project() {
                 ),
               },
               { title: '描述', dataIndex: 'description' },
+              {
+                title: '網址',
+                dataIndex: 'id',
+                render: id => (
+                  <a href={`https://yichinglin.vercel.app/project/${id}`}>
+                    https://yichinglin.vercel.app/project/{id}
+                  </a>
+                ),
+              },
             ]}
           />
         </DndProvider>
