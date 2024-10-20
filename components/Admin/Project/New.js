@@ -22,7 +22,9 @@ function New() {
           queryClient.setQueryData(queryKey, oldData => [values, ...oldData])
           onClose()
         },
-        onError: error => Modal.error({ title: '錯誤', content: error }),
+        onError: error => {
+          Modal.error({ title: '錯誤', content: error.message || '發生錯誤' })
+        },
       }
     )
   }
