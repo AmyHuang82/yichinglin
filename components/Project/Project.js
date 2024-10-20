@@ -1,13 +1,10 @@
-import { getProjects } from 'lib/getProjectData'
 import { Container } from './Project.style'
 import Card from './Card/Card'
 
-function Project() {
-  const data = getProjects()
-
+function Project({ projects }) {
   return (
     <Container>
-      {data
+      {projects
         .sort((a, b) => b.order - a.order)
         .map(({ id, title, cover, description }) => (
           <Card

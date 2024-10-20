@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'utils/axiosUtils'
 import { useMutation } from 'react-query'
 import { serialize as objectToFormData } from 'object-to-formdata'
 
