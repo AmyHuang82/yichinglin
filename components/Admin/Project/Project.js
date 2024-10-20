@@ -1,10 +1,11 @@
-import { Image, Table } from 'antd'
+import { Image, Table, Space } from 'antd'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import DraggableBodyRow from 'components/Common/DraggableBodyRow'
 import { Container, Row } from '../Admin.style'
 import useRows from './useRows'
 import New from './New'
+import Delete from './Delete'
 
 function Project() {
   const [rows, moveRow, canDrag] = useRows()
@@ -52,6 +53,15 @@ function Project() {
                   <a href={`https://yichinglin.vercel.app/project/${id}`}>
                     https://yichinglin.vercel.app/project/{id}
                   </a>
+                ),
+              },
+              {
+                title: '操作',
+                key: 'action',
+                render: project => (
+                  <Space>
+                    <Delete {...project} />
+                  </Space>
                 ),
               },
             ]}

@@ -35,6 +35,19 @@ async function handler(req, res) {
 
       res.status(200).end()
     }
+    if (req.method === 'DELETE') {
+      const { id } = req.query
+
+      await db
+        .collection('projects')
+        .doc(id)
+        .delete()
+        .catch(error => {
+          res.status(400).json(error)
+        })
+
+      res.status(204).end()
+    }
   } catch (error) {
     res.status(400).json(error)
   }
