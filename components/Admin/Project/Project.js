@@ -5,6 +5,7 @@ import DraggableBodyRow from 'components/Common/DraggableBodyRow'
 import { Container, Row } from '../Admin.style'
 import useRows from './useRows'
 import New from './New'
+import Edit from './Edit'
 import Delete from './Delete'
 
 function Project() {
@@ -60,6 +61,7 @@ function Project() {
                 key: 'action',
                 render: project => (
                   <Space>
+                    <Edit {...project} />
                     <Delete {...project} />
                   </Space>
                 ),

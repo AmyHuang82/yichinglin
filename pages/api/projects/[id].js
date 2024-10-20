@@ -1,5 +1,5 @@
 import admin from 'firebase/backend'
-import { ORDER } from 'constants/updateFields'
+import { ORDER, CONTENT } from 'constants/updateFields'
 
 const db = admin.firestore()
 
@@ -31,6 +31,24 @@ async function handler(req, res) {
           .catch(error => {
             res.status(400).json(error)
           })
+      }
+
+      if (updateField === CONTENT) {
+        const { id } = req.query
+        const { content } = req.body
+
+        await Promise.all(
+          Object.entries(content).map(([key, value]) => {
+            return db
+              .collection('projects')
+              .doc(id)
+              .update({ [key]: value })
+          })
+        ).catch(error => {
+          res.status(400).json(error)
+        })
+
+        res.json('succeed')
       }
 
       res.status(200).end()
