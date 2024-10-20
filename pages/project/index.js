@@ -12,7 +12,7 @@ import {
 } from 'constants/headInfo'
 import axios from 'utils/axiosUtils'
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { data } = await axios.get('/api/projects')
   return { props: { projects: data } }
 }
