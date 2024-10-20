@@ -26,7 +26,17 @@ const HtmlEditor = ({ disabled = false, ...props }) => {
       askBeforePasteHTML: false,
       language: 'zh_tw',
       addNewLine: false,
-      buttons: ['bold', '|', 'image', '|', 'undo', 'redo', '|', 'fullsize'],
+      buttons: [
+        'bold',
+        '|',
+        'image',
+        '|',
+        'undo',
+        'redo',
+        '|',
+        'fullsize',
+        'source',
+      ],
       image: {
         openOnDblClick: false,
         useImageEditor: false,
