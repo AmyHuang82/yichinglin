@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { data } = await axios.get(`/api/projects/${params.id}`)
-  return { props: { project: data } }
+  return { props: { project: data, revalidate: 60 } }
 }
 
 function Project({ project }) {
