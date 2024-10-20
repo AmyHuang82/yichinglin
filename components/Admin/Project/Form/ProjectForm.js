@@ -14,7 +14,11 @@ function ProjectForm({ initialValues, onClose, onSubmit, isLoading }) {
       }}
     >
       {initialValues ? (
-        <Form.Item label="Unique ID">{initialValues.id}</Form.Item>
+        <Form.Item label="網址">
+          <a href={`https://yichinglin.vercel.app/project/${initialValues.id}`}>
+            https://yichinglin.vercel.app/project/{initialValues.id}
+          </a>
+        </Form.Item>
       ) : (
         <Form.Item
           label="網址（請小心命名建立後無法修改）"
