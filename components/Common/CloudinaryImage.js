@@ -4,7 +4,9 @@ import { AdvancedImage } from '@cloudinary/react'
 import getCloudinaryImageName from 'utils/getCloudinaryImageName'
 
 function CloudinaryImage({ src, alt, width }) {
-  const cld = new Cloudinary({ cloud: { cloudName: 'dqi3jgigh' } })
+  const cld = new Cloudinary({
+    cloud: { cloudName: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME },
+  })
   const img = cld
     .image(getCloudinaryImageName(src))
     .format('auto')
