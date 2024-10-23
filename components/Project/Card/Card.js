@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { PROJECT_URL } from 'constants/links'
+import CloudinaryImage from 'components/Common/CloudinaryImage'
 import {
   Wrapper,
   Content,
-  Img,
   TitleWrapper,
   Title,
   Description,
@@ -14,7 +14,7 @@ function Card({ id, cover, title, description }) {
     <Link href={`${PROJECT_URL}/${id}`}>
       <Wrapper>
         <Content>
-          <Img loading="lazy" url={cover} />
+          <CloudinaryImage src={cover} width={370} />
           <TitleWrapper>
             <Title>{title}</Title>
             <Description>{description}</Description>

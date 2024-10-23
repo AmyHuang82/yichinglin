@@ -65,14 +65,12 @@ export const Content = styled.div`
   flex-direction: column;
   border: 1px solid ${GALLERY_GRAY};
   padding: 30px 20px 10px;
-`
 
-export const Img = styled.div`
-  width: 100%;
-  height: 70%;
-  background-image: url(${({ url }) => url});
-  background-size: cover;
-  background-position: center;
+  img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+  }
 `
 
 export const TitleWrapper = styled.div`

@@ -1,14 +1,11 @@
 import Head from 'next/head'
 import { useState } from 'react'
-import Image from 'next/image'
+import CloudinaryImage from 'components/Common/CloudinaryImage'
 import Modal from './Modal/Modal'
-import { Wrapper } from './Card.style'
-
-const MAXIMUM_WIDTH = 370
+import { Wrapper, MAXIMUM_WIDTH } from './Card.style'
 
 function Card({ data }) {
-  const { id, name, src, width, height } = data
-  const calcHeight = MAXIMUM_WIDTH * (height / width)
+  const { src, name } = data
 
   const [open, setOpen] = useState(false)
   function toggleOpen() {
@@ -21,13 +18,7 @@ function Card({ data }) {
         <link rel="prefetch" href={src} />
       </Head>
       <Wrapper onClick={toggleOpen}>
-        <Image
-          key={id}
-          src={src}
-          alt={name}
-          width={MAXIMUM_WIDTH}
-          height={calcHeight}
-        />
+        <CloudinaryImage src={src} alt={name} width={MAXIMUM_WIDTH} />
       </Wrapper>
       {open && <Modal data={data} closeModal={toggleOpen} />}
     </>
