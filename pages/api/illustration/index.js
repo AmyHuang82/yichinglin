@@ -1,11 +1,10 @@
 import formidable from 'formidable'
 import { v4 as uuid } from 'uuid'
 import admin from 'firebase/backend'
+import cloudinary from 'cloudinary/config'
 import parseFormObject from 'utils/parseFormObject'
-import createFirebaseStorageUrl from 'utils/createFirebaseStorageUrl'
 
 const db = admin.firestore()
-const bucket = admin.storage().bucket()
 
 export const config = {
   api: {
@@ -37,16 +36,9 @@ async function handler(req, res) {
         const uploadInfos = []
 
         Object.keys(parsedFields).forEach(key => {
-          const token = uuid()
           const file = parsedFiles[key].imageFile
           const filePath = file.path
-          const remotePath = `illustration/${file.name}`
-          uploadInfos.push({
-            filePath,
-            remotePath,
-            token,
-          })
-          parsedFields[key].src = createFirebaseStorageUrl(remotePath, token)
+          uploadInfos.push({ key, filePath })
 
           const docId = uuid()
           parsedFields[key].id = docId
@@ -54,15 +46,14 @@ async function handler(req, res) {
 
         await Promise.all(
           uploadInfos.map(info => {
-            return bucket.upload(info.filePath, {
-              destination: info.remotePath,
-              metadata: {
-                cacheControl: 'public, max-age=604800',
-                metadata: {
-                  firebaseStorageDownloadTokens: info.token,
-                },
-              },
-            })
+            return cloudinary.uploader
+              .upload(info.filePath, {
+                asset_folder: 'illustration',
+                resource_type: 'image',
+              })
+              .then(data => {
+                parsedFields[info.key].src = data.secure_url
+              })
           })
         ).catch(error => {
           res.status(400).json(error)
