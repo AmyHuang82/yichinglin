@@ -9,9 +9,9 @@ function Delete({ id, name, src }) {
   const { queryKey } = useIllustration()
   const { submit } = useDeleteIllustration()
 
-  function deleteIllustration(id, name) {
+  function deleteIllustration(id, src) {
     submit(
-      { id, name },
+      { id, src },
       {
         onSuccess: () => {
           queryClient.setQueryData(queryKey, oldData =>
@@ -35,7 +35,7 @@ function Delete({ id, name, src }) {
         content: <NewTabLink href={src}>{name}</NewTabLink>,
         cancelText: '取消',
         okText: '刪除',
-        onOk: () => deleteIllustration(id, name),
+        onOk: () => deleteIllustration(id, src),
       })
     }
   }

@@ -1,9 +1,9 @@
 import axios from 'utils/axiosUtils'
 import { useMutation } from 'react-query'
 
-function deleteIllustrationAPI({ id, name }) {
+function deleteIllustrationAPI({ id, src }) {
   return axios
-    .delete(`/api/illustration/${id}`, { params: { imageName: name } })
+    .delete(`/api/illustration/${id}`, { params: { src } })
     .catch(error => {
       if (error.response) throw new Error(error.response.data.message)
       throw error

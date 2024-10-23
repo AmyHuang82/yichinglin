@@ -1,8 +1,9 @@
 import admin from 'firebase/backend'
+import cloudinary from 'cloudinary/config'
+import getCloudinaryImageName from 'utils/getCloudinaryImageName'
 import { ORDER, DESCRIPTION } from 'constants/updateFields'
 
 const db = admin.firestore()
-const bucket = admin.storage().bucket()
 
 async function handler(req, res) {
   try {
@@ -47,11 +48,10 @@ async function handler(req, res) {
       res.status(200).end()
     }
     if (req.method === 'DELETE') {
-      const { id, imageName } = req.query
+      const { id, src } = req.query
 
-      await bucket
-        .file(`illustration/${imageName}`)
-        .delete()
+      await cloudinary.uploader
+        .destroy(getCloudinaryImageName(src))
         .catch(error => {
           res.status(400).json(error)
         })
