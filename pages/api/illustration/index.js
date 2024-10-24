@@ -38,7 +38,8 @@ async function handler(req, res) {
         Object.keys(parsedFields).forEach(key => {
           const file = parsedFiles[key].imageFile
           const filePath = file.path
-          uploadInfos.push({ key, filePath })
+          const publicId = `${file.name.split('.').shift()}_${uuid()}`
+          uploadInfos.push({ key, filePath, publicId })
 
           const docId = uuid()
           parsedFields[key].id = docId
@@ -50,6 +51,7 @@ async function handler(req, res) {
               .upload(info.filePath, {
                 asset_folder: 'illustration',
                 resource_type: 'image',
+                public_id: info.publicId,
               })
               .then(data => {
                 parsedFields[info.key].src = data.secure_url
