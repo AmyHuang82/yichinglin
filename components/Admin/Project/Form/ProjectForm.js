@@ -3,6 +3,8 @@ import HtmlEditor from './HtmlEditor'
 import { FormFooter } from '../../Admin.style'
 
 function ProjectForm({ initialValues, onClose, onSubmit, isLoading }) {
+  const isNew = !initialValues
+
   return (
     <Form
       disabled={isLoading}
@@ -13,19 +15,19 @@ function ProjectForm({ initialValues, onClose, onSubmit, isLoading }) {
         required: '此欄位為必填',
       }}
     >
-      {initialValues ? (
-        <Form.Item label="網址">
-          <a href={`https://yichinglin.vercel.app/project/${initialValues.id}`}>
-            https://yichinglin.vercel.app/project/{initialValues.id}
-          </a>
-        </Form.Item>
-      ) : (
+      {isNew ? (
         <Form.Item
           label="網址（請小心命名建立後無法修改）"
           rules={[{ required: true }]}
           name="id"
         >
           <Input />
+        </Form.Item>
+      ) : (
+        <Form.Item label="網址">
+          <a href={`https://yichinglin.vercel.app/project/${initialValues.id}`}>
+            https://yichinglin.vercel.app/project/{initialValues.id}
+          </a>
         </Form.Item>
       )}
       <Form.Item label="執行時間" rules={[{ required: true }]} name="date">
