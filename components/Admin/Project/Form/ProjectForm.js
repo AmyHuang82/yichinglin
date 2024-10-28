@@ -1,4 +1,5 @@
-import { Button, Form, Image, Input } from 'antd'
+import { Button, Form, Image, Input, Space } from 'antd'
+import { CloseOutlined } from '@ant-design/icons'
 import HtmlEditor from './HtmlEditor'
 import { FormFooter } from '../../Admin.style'
 
@@ -70,8 +71,40 @@ function ProjectForm({ initialValues, onClose, onSubmit, isLoading }) {
       >
         <Input />
       </Form.Item>
-      <Form.Item label="專案客戶" rules={[{ required: true }]} name="client">
-        <Input />
+      <Form.Item label="合作夥伴">
+        <Form.List
+          initialValue={isNew ? [{ label: '', value: '' }] : undefined}
+          rules={[{ required: true }]}
+          name="collaborators"
+        >
+          {(fields, { add, remove }) => (
+            <>
+              {fields.map(field => (
+                <Space key={field.key}>
+                  <Form.Item
+                    label="標題"
+                    rules={[{ required: true }]}
+                    name={[field.name, 'label']}
+                  >
+                    <Input />
+                  </Form.Item>
+                  <Form.Item
+                    label="內容"
+                    rules={[{ required: true }]}
+                    name={[field.name, 'value']}
+                  >
+                    <Input />
+                  </Form.Item>
+                  {fields.length > 1 && (
+                    <CloseOutlined onClick={() => remove(field.name)} />
+                  )}
+                </Space>
+              ))}
+              <br />
+              <Button onClick={() => add()}>新增</Button>
+            </>
+          )}
+        </Form.List>
       </Form.Item>
       <Form.Item label="專案內容" rules={[{ required: true }]} name="html">
         <HtmlEditor disabled={isLoading} />
