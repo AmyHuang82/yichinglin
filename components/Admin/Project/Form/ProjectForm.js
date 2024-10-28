@@ -45,7 +45,9 @@ function ProjectForm({ initialValues, onClose, onSubmit, isLoading }) {
         <Input />
       </Form.Item>
       <Form.Item shouldUpdate noStyle>
-        {({ getFieldValue }) => <Image src={getFieldValue('cover')} />}
+        {({ getFieldValue }) => (
+          <Image width={200} src={getFieldValue('cover')} />
+        )}
       </Form.Item>
       <Form.Item
         label="內頁封面"
@@ -56,7 +58,7 @@ function ProjectForm({ initialValues, onClose, onSubmit, isLoading }) {
       </Form.Item>
       <Form.Item shouldUpdate noStyle>
         {({ getFieldValue }) => (
-          <Image src={getFieldValue(['contentCover', 'url'])} />
+          <Image width={200} src={getFieldValue(['contentCover', 'url'])} />
         )}
       </Form.Item>
       <Form.Item
