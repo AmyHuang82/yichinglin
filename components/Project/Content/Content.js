@@ -9,7 +9,7 @@ import {
 } from './Content.style'
 
 function Content({
-  project: { date, title, description, contentCover, client, html },
+  project: { date, title, description, contentCover, collaborators, html },
 }) {
   return (
     <Container>
@@ -23,14 +23,12 @@ function Content({
       <Info>
         <Info.Border />
         <Info.Content>
-          <Info.Wrapper>
-            <Info.Title>CLIENT</Info.Title>
-            {client}
-          </Info.Wrapper>
-          <Info.Wrapper>
-            <Info.Title>ILLUSTRATION</Info.Title>
-            林以晴 Yiching Lin
-          </Info.Wrapper>
+          {collaborators.map(({ label, value }) => (
+            <Info.Wrapper key={value}>
+              <Info.Title>{label}</Info.Title>
+              {value}
+            </Info.Wrapper>
+          ))}
         </Info.Content>
       </Info>
       <HTMLContainer
