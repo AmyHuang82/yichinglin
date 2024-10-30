@@ -54,17 +54,11 @@ function UploadModal({ closeModal }) {
   }
 
   const queryClient = useQueryClient()
-  const { data, queryKey } = useIllustration()
+  const { queryKey } = useIllustration()
   const { submit, isLoading } = useCreateIllustration()
 
   function onSubmit() {
-    const submitData = images.map((image, index) => {
-      const currentOrder = index + 1
-      return {
-        ...image,
-        order: data[0] ? data[0].order + currentOrder : currentOrder,
-      }
-    })
+    const submitData = images
     submit(submitData, {
       onSuccess: newData => {
         closeModal()

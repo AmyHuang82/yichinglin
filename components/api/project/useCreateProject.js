@@ -6,7 +6,7 @@ function createProjectAPI(data) {
     .post('/api/projects', data)
     .then(response => response.data)
     .catch(error => {
-      if (error.response) throw new Error(error.response.data.message)
+      if (error.response) throw new Error(error.response.data)
       throw error
     })
 }

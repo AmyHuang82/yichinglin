@@ -27,6 +27,12 @@ async function handler(req, res) {
       }
     }
     if (req.method === 'POST') {
+      const snapshot = await db.collection('illustration').get()
+      const startOrder =
+        snapshot?.docs?.length > 0
+          ? Math.max(...snapshot.docs.map(doc => doc.data().order)) + 1
+          : 1
+
       const form = formidable({ multiples: true })
       form.parse(req, async (error, fields, files) => {
         if (error) res.status(400).json(error)
@@ -62,8 +68,12 @@ async function handler(req, res) {
         })
 
         await Promise.all(
-          Object.values(parsedFields).map(field => {
-            return db.collection('illustration').doc(field.id).set(field)
+          Object.values(parsedFields).map((field, index) => {
+            const fieldData = {
+              ...field,
+              order: startOrder + index + 1,
+            }
+            return db.collection('illustration').doc(field.id).set(fieldData)
           })
         ).catch(error => {
           res.status(400).json(error)
