@@ -12,21 +12,18 @@ function New() {
   }
 
   const queryClient = useQueryClient()
-  const { data, queryKey } = useProjects()
+  const { queryKey } = useProjects()
   const { submit, isLoading } = useCreateProject()
   function onSubmit(values) {
-    submit(
-      { order: data.length + 1, ...values },
-      {
-        onSuccess: () => {
-          queryClient.setQueryData(queryKey, oldData => [values, ...oldData])
-          onClose()
-        },
-        onError: error => {
-          Modal.error({ title: '錯誤', content: error.message || '發生錯誤' })
-        },
-      }
-    )
+    submit(values, {
+      onSuccess: () => {
+        queryClient.setQueryData(queryKey, oldData => [values, ...oldData])
+        onClose()
+      },
+      onError: error => {
+        Modal.error({ title: '錯誤', content: error.message || '發生錯誤' })
+      },
+    })
   }
 
   return (

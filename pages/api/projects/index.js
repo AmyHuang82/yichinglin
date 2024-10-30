@@ -17,7 +17,13 @@ async function handler(req, res) {
       }
     }
     if (req.method === 'POST') {
-      const data = req.body
+      const snapshot = await db.collection('projects').get()
+      const startOrder =
+        snapshot?.docs?.length > 0
+          ? Math.max(...snapshot.docs.map(doc => doc.data().order)) + 1
+          : 1
+
+      const data = { ...req.body, order: startOrder + 1 }
       await db.collection('projects').doc(data.id).set(data)
       res.status(201).json('succeed')
     }
