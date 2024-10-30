@@ -21,7 +21,11 @@ function New() {
         onClose()
       },
       onError: error => {
-        Modal.error({ title: '錯誤', content: error.message || '發生錯誤' })
+        Modal.error({
+          centered: true,
+          title: '錯誤',
+          content: error.message || '發生錯誤',
+        })
       },
     })
   }

@@ -17,14 +17,22 @@ async function handler(req, res) {
       }
     }
     if (req.method === 'POST') {
+      const data = req.body
       const snapshot = await db.collection('projects').get()
+
+      if (snapshot.docs.some(doc => data.id === doc.data().id)) {
+        return res.status(400).json('網址重複，請重新命名')
+      }
+
       const startOrder =
-        snapshot?.docs?.length > 0
+        snapshot.docs.length > 0
           ? Math.max(...snapshot.docs.map(doc => doc.data().order)) + 1
           : 1
 
-      const data = { ...req.body, order: startOrder + 1 }
-      await db.collection('projects').doc(data.id).set(data)
+      await db
+        .collection('projects')
+        .doc(data.id)
+        .set({ ...data, order: startOrder + 1 })
       res.status(201).json('succeed')
     }
   } catch (error) {
