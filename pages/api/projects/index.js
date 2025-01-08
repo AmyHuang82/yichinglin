@@ -26,7 +26,7 @@ async function handler(req, res) {
 
       const startOrder =
         snapshot.docs.length > 0
-          ? Math.max(...snapshot.docs.map(doc => doc.data().order)) + 1
+          ? Math.max(...snapshot.docs.map(doc => doc.data().order))
           : 1
 
       await db

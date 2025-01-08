@@ -30,7 +30,7 @@ async function handler(req, res) {
       const snapshot = await db.collection('illustration').get()
       const startOrder =
         snapshot?.docs?.length > 0
-          ? Math.max(...snapshot.docs.map(doc => doc.data().order)) + 1
+          ? Math.max(...snapshot.docs.map(doc => doc.data().order))
           : 1
 
       const form = formidable({ multiples: true })
