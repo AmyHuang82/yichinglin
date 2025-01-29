@@ -31,9 +31,11 @@ function EditContent({ id, onClose }) {
         onSuccess: () => {
           queryClient.invalidateQueries(projectQueryKey)
           queryClient.setQueryData(queryKey, oldData =>
-            oldData.map(project =>
-              project.id === id ? { ...project, ...updateValues } : project
-            )
+            oldData
+              .map(project =>
+                project.id === id ? { ...project, ...updateValues } : project
+              )
+              .sort((a, b) => b.order - a.order)
           )
           onClose()
         },

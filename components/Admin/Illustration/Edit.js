@@ -23,12 +23,15 @@ function EditForm({ id, order, name, description, src, onClose }) {
         { id, order: editData.order, description: editData.description },
         {
           onSuccess: ({ order, description }) => {
-            queryClient.setQueryData(queryKey, oldData => {
-              const oldIllustration = oldData.find(data => data.id === id)
-              oldIllustration.order = order
-              oldIllustration.description = description
-              return oldData
-            })
+            queryClient.setQueryData(queryKey, oldData =>
+              oldData
+                .map(illustration =>
+                  illustration.id === id
+                    ? { ...illustration, order, description }
+                    : illustration
+                )
+                .sort((a, b) => b.order - a.order)
+            )
             onClose()
             message.success('更新成功')
           },
