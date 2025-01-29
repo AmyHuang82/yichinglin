@@ -39,10 +39,11 @@ function Illustration() {
             }}
             columns={[
               {
-                title: '排序',
+                title: '顯示順序',
                 key: 'index',
                 render: (_, __, index) => index + 1,
               },
+              { title: '資料庫序號', dataIndex: 'order' },
               {
                 title: '圖片預覽',
                 key: 'preview',

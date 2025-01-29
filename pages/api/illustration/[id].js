@@ -1,7 +1,7 @@
 import admin from 'firebase/backend'
 import cloudinary from 'cloudinary/config'
 import getCloudinaryImageName from 'utils/getCloudinaryImageName'
-import { ORDER, DESCRIPTION } from 'constants/updateFields'
+import { ORDER, CONTENT } from 'constants/updateFields'
 
 const db = admin.firestore()
 
@@ -30,19 +30,19 @@ async function handler(req, res) {
           })
       }
 
-      if (updateField === DESCRIPTION) {
+      if (updateField === CONTENT) {
         const { id } = req.query
-        const { description } = req.body
+        const { order, description } = req.body
 
         await db
           .collection('illustration')
           .doc(id)
-          .update({ description })
+          .update({ order, description })
           .catch(error => {
             res.status(400).json(error)
           })
 
-        res.json({ description })
+        res.json({ order, description })
       }
 
       res.status(200).end()

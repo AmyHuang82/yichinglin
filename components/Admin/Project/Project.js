@@ -35,10 +35,11 @@ function Project() {
             }}
             columns={[
               {
-                title: '排序',
+                title: '顯示順序',
                 key: 'index',
                 render: (_, __, index) => index + 1,
               },
+              { title: '資料庫序號', dataIndex: 'order' },
               { title: '專案名稱', dataIndex: 'title' },
               {
                 title: '封面預覽',

@@ -1,4 +1,4 @@
-import { Button, Form, Image, Input, Space } from 'antd'
+import { Button, Form, Image, Input, InputNumber, Space } from 'antd'
 import { CloseOutlined } from '@ant-design/icons'
 import HtmlEditor from './HtmlEditor'
 import { FormFooter } from '../../Admin.style'
@@ -29,6 +29,11 @@ function ProjectForm({ initialValues, onClose, onSubmit, isLoading }) {
           <a href={`https://yichinglin.vercel.app/project/${initialValues.id}`}>
             https://yichinglin.vercel.app/project/{initialValues.id}
           </a>
+        </Form.Item>
+      )}
+      {!isNew && (
+        <Form.Item label="資料庫序號" rules={[{ required: true }]} name="order">
+          <InputNumber />
         </Form.Item>
       )}
       <Form.Item label="執行時間" rules={[{ required: true }]} name="date">
