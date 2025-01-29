@@ -12,22 +12,26 @@ function New() {
   }
 
   const queryClient = useQueryClient()
-  const { queryKey } = useProjects()
+  const { queryKey, data } = useProjects()
   const { submit, isLoading } = useCreateProject()
   function onSubmit(values) {
-    submit(values, {
-      onSuccess: () => {
-        queryClient.setQueryData(queryKey, oldData => [values, ...oldData])
-        onClose()
-      },
-      onError: error => {
-        Modal.error({
-          centered: true,
-          title: '錯誤',
-          content: error.message || '發生錯誤',
-        })
-      },
-    })
+    const startOrder = Math.max(...data.map(({ order }) => order))
+    submit(
+      { ...values, order: startOrder + 1 },
+      {
+        onSuccess: data => {
+          queryClient.setQueryData(queryKey, oldData => [data, ...oldData])
+          onClose()
+        },
+        onError: error => {
+          Modal.error({
+            centered: true,
+            title: '錯誤',
+            content: error.message || '發生錯誤',
+          })
+        },
+      }
+    )
   }
 
   return (

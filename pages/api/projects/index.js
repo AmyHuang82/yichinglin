@@ -24,16 +24,8 @@ async function handler(req, res) {
         return res.status(400).json('網址重複，請重新命名')
       }
 
-      const startOrder =
-        snapshot.docs.length > 0
-          ? Math.max(...snapshot.docs.map(doc => doc.data().order))
-          : 1
-
-      await db
-        .collection('projects')
-        .doc(data.id)
-        .set({ ...data, order: startOrder + 1 })
-      res.status(201).json('succeed')
+      await db.collection('projects').doc(data.id).set(data)
+      res.status(201).json(data)
     }
   } catch (error) {
     res.status(400).json(error)
