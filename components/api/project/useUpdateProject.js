@@ -8,6 +8,7 @@ function updateProjectAPI({ id, content }) {
       updateField: CONTENT,
       content,
     })
+    .then(response => response.data)
     .catch(error => {
       if (error.response) throw new Error(error.response.data.message)
       throw error

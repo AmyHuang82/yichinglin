@@ -48,7 +48,7 @@ async function handler(req, res) {
           res.status(400).json(error)
         })
 
-        res.json('succeed')
+        res.json(content)
       }
 
       res.status(200).end()
