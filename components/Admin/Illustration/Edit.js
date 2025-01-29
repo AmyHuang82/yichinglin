@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { useQueryClient } from 'react-query'
-import { Button, Drawer, Form, Image, Input, message } from 'antd'
+import { Button, Drawer, Form, Image, Input, InputNumber, message } from 'antd'
+import isEqual from 'lodash/isEqual'
 import useIllustration from 'components/api/illustration/useIllustration'
 import useUpdateIllustration from 'components/api/illustration/useUpdateIllustration'
 import { FormFooter } from '../Admin.style'
 
-function EditForm({ id, name, description, src, onClose }) {
+function EditForm({ id, order, name, description, src, onClose }) {
   const [form] = Form.useForm()
 
   const queryClient = useQueryClient()
@@ -13,17 +14,19 @@ function EditForm({ id, name, description, src, onClose }) {
   const { submit, isLoading } = useUpdateIllustration()
 
   function onSubmit() {
-    const newDescription = form.getFieldValue('description')
+    const editData = form.getFieldsValue()
 
-    if (newDescription === description) {
+    if (isEqual(editData, { order, description })) {
       onClose()
     } else {
       submit(
-        { id, description: newDescription },
+        { id, order: editData.order, description: editData.description },
         {
-          onSuccess: () => {
+          onSuccess: ({ order, description }) => {
             queryClient.setQueryData(queryKey, oldData => {
-              oldData.find(data => data.id === id).description = newDescription
+              const oldIllustration = oldData.find(data => data.id === id)
+              oldIllustration.order = order
+              oldIllustration.description = description
               return oldData
             })
             onClose()
@@ -42,13 +45,16 @@ function EditForm({ id, name, description, src, onClose }) {
       disabled={isLoading}
       layout="vertical"
       form={form}
-      initialValues={{ description }}
+      initialValues={{ description, order }}
       onFinish={onSubmit}
       validateMessages={{
         required: '此欄位為必填',
       }}
     >
       <Form.Item label="檔案名稱">{name}</Form.Item>
+      <Form.Item label="資料庫序號" rules={[{ required: true }]} name="order">
+        <InputNumber />
+      </Form.Item>
       <Form.Item label="描述" rules={[{ required: true }]} name="description">
         <Input />
       </Form.Item>
