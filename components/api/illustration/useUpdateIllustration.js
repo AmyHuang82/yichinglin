@@ -1,11 +1,11 @@
 import axios from 'utils/axiosUtils'
 import { useMutation } from 'react-query'
-import { DESCRIPTION } from 'constants/updateFields'
+import { CONTENT } from 'constants/updateFields'
 
 function updateIllustrationAPI({ id, description }) {
   return axios
     .patch(`/api/illustration/${id}`, {
-      updateField: DESCRIPTION,
+      updateField: CONTENT,
       description,
     })
     .catch(error => {
