@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { lighten } from 'polished'
 import { media } from 'utils/styleUtils'
-import { WHITE, BLACK, NOBEL_GRAY, CAMOUFLAGE_GREEN } from 'constants/colors'
+import { WHITE, CAMOUFLAGE_GREEN } from 'constants/colors'
 import { HEADER_HEIGHT } from 'constants/size'
 import { StyledFooter } from '../Footer/Footer.style'
 
@@ -50,70 +50,30 @@ export const InfoWrapper = styled.div`
 `
 
 export const Intro = styled.div`
-  padding-bottom: 35px;
-  text-align: center;
-  color: ${CAMOUFLAGE_GREEN};
+  padding-block: 10px;
 `
 
 export const Description = styled.div`
   div + div {
     margin-top: 10px;
   }
-
-  div:nth-child(3) {
-    margin-top: 35px;
-  }
 `
 
 export const Contact = styled.div`
-  padding-top: 35px;
+  padding-bottom: 20px;
 `
 
-Contact.Title = styled.div`
-  font-size: 1.25rem;
-  font-weight: 700;
+Contact.Link = styled.a`
   color: ${CAMOUFLAGE_GREEN};
-  margin-bottom: 8px;
-`
-
-Contact.Email = styled.a`
-  color: ${CAMOUFLAGE_GREEN};
-`
-
-Contact.IconLink = styled.a`
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  color: ${BLACK};
-  letter-spacing: 0;
-  font-size: 0.875rem;
-
-  ${media.pad} {
-    letter-spacing: 0.05rem;
-  }
-
-  :visited {
-    color: ${BLACK};
-  }
-
-  svg {
-    height: 18px;
-    width: 18px;
-    margin-right: 10px;
-  }
-
-  :hover {
-    color: ${NOBEL_GRAY};
-    path {
-      fill: ${NOBEL_GRAY};
-    }
-  }
+  white-space: nowrap;
+  display: inline-block;
 `
 
 Contact.Links = styled.div`
   position: relative;
   margin-top: 10px;
   padding-left: 18px;
+  line-height: 28px;
 
   ::before {
     content: '';
