@@ -13,10 +13,6 @@ function getBaseURL() {
     return `https://${process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL}`
   }
 
-  if (process.env.NEXT_PUBLIC_VERCEL_URL) {
-    return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-  }
-
   return 'https://yichinglin.vercel.app'
 }
 
