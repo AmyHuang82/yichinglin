@@ -24,7 +24,7 @@ function Content({
         <Info.Border />
         <Info.Content>
           {collaborators.map(({ label, value }) => (
-            <Info.Wrapper key={value}>
+            <Info.Wrapper key={`${label}-${value}`}>
               <Info.Title>{label}</Info.Title>
               {value}
             </Info.Wrapper>
