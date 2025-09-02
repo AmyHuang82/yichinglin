@@ -21,8 +21,6 @@ function AboutPage() {
         <meta property="og:title" content={BASE_TITLE} />
         <meta name="og:description" content={DESCRIPTIONS.ABOUT_PAGE} />
         <meta property="og:image" content={SITE_IMAGE} />
-        <meta name="og:image:width" content="1200" />
-        <meta name="og:image:height" content="630" />
       </Head>
       <Header isAbout />
       <Container>
