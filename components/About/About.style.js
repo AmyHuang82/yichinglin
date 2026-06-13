@@ -11,13 +11,24 @@ const AVATAR_DESKTOP_WIDTH = 40
 
 export const Wrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   margin-top: -${MOBILE_SIDE_SPACE}px;
 
   ${media.pad} {
     margin-top: 0;
+    min-height: calc(100vh - ${HEADER_HEIGHT}px - 40px);
+  }
+`
+
+export const MainContent = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  ${media.pad} {
+    flex: 1;
   }
 `
 
@@ -43,14 +54,18 @@ export const InfoWrapper = styled.div`
 
   ${media.pad} {
     width: calc(${100 - AVATAR_DESKTOP_WIDTH}% - ${2 * DESKTOP_SIDE_SPACE}px);
-    height: calc(100vh - ${HEADER_HEIGHT}px - 100px);
-    overflow: auto;
     padding: 0 ${DESKTOP_SIDE_SPACE}px ${DESKTOP_SIDE_SPACE}px;
   }
 `
 
 export const Intro = styled.div`
   padding-block: 10px;
+`
+
+export const Title = styled.h3`
+  color: ${CAMOUFLAGE_GREEN};
+  margin-top: 0;
+  margin-bottom: 5px;
 `
 
 export const Description = styled.div`
@@ -71,7 +86,7 @@ Contact.Link = styled.a`
 
 Contact.Links = styled.div`
   position: relative;
-  margin-top: 10px;
+  margin-top: 20px;
   padding-left: 18px;
   line-height: 28px;
 
@@ -87,9 +102,39 @@ Contact.Links = styled.div`
 `
 
 export const Footer = styled(StyledFooter)`
+  width: 100%;
   padding-top: 70px;
 
   ${media.pad} {
     padding-top: 25px;
+  }
+`
+
+export const LanguageToggleWrapper = styled.div`
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+
+  ${media.pad} {
+    justify-content: flex-start;
+  }
+`
+
+export const LanguageToggle = styled.button`
+  background: none;
+  border: none;
+  border-right: 1.5px solid ${CAMOUFLAGE_GREEN};
+  border-left: 1.5px solid ${CAMOUFLAGE_GREEN};
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  color: ${CAMOUFLAGE_GREEN};
+  padding: 0 10px;
+  margin: 0;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
   }
 `
